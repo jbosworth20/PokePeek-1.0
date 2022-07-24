@@ -1,3 +1,18 @@
 h1{
-    background-color: #ff6f68
+    background-color: #ff6f68;
+    padding-bottom:20px;
+    color:white;
+    
+}
+h3{
+    vertical-align:bottom; 
+}
+img{
+    width: 300px;
+    height: 300px;
+    
+}
+
+.border{
+    width:100px;
 }
