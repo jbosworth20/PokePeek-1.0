@@ -7,14 +7,13 @@
 </head>
 <body>
     <h1> Pokemon Info </h1>
-    <input type = 'text' placeholder = "Find Pokemon"> 
-    <i><img src = https://icon-library.com/images/search-icon-svg/search-icon-svg-27.jpg width = 18, height = 18></i>
+    <input type = 'text' id = 'find_pokemon' placeholder = "Find Pokemon"> 
+    <button id = 'search' onclick = "grab_pokemon_name()" >Search</button>
     <p></p>
     <div class="d-flex flex-row">
         <div class="p-2">     
             <h4>Bulbasaur</h4> <!--Replace with get_name()-->
-            <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'width = "300px"
-                ,height = "300px">
+            <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'width = "300px" height = "300px">
             <h5> Types </h5>
             <div type_one><p>Grass</p></div>
             <div type_two></div>
@@ -22,12 +21,7 @@
         <div class="p-2">
             <h5>Stats</h5>
                 <div class="border">
-                    <p>HP: 45</p>
-                    <p>Attack: 49</p>
-                    <p>Defense: 49</p>
-                    <p>Sp Atk: 65</p>
-                    <p>Sp Def: 65</p>
-                    <p>Speed: 45</p>
+                    <p>HP: 45</p><p>Attack: 49</p><p>Defense: 49</p><p>Sp Atk: 65</p><p>Sp Def: 65</p><p>Speed: 45</p>
                 </div>
             <h5>Abilities</h5>
                 <p>Overgrow
