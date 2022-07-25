@@ -10,3 +10,18 @@ h4{
 h5{
     text-align:center;
 }
+#search{
+    width: 25px;
+    height: 25px;
+}
+#moreinfo{
+    width: 20px;
+    height: 20px;
+}
+#type_one{
+    background-color:green;
+    color:white;
+}
+#accordion{
+    color:#ff6f68;
+}

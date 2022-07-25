@@ -7,16 +7,15 @@
 </head>
 <body>
     <h1> Pokemon Info </h1>
-    <input type = 'text' id = 'find_pokemon' placeholder = "Find Pokemon"> 
-    <button id = 'search' onclick = "grab_pokemon_name()" >Search</button>
+    <p><input type = 'text' id = 'find_pokemon' placeholder = "Find Pokemon"> 
+    <img src = 'https://icon-library.com/images/find-icon-png/find-icon-png-9.jpg' id = 'search' onclick = 'grab_pokemon_name()'></p>
     <p></p>
     <div class="d-flex flex-row">
         <div class="p-2">     
             <h4>Bulbasaur</h4> <!--Replace with get_name()-->
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'width = "300px" height = "300px">
             <h5> Types </h5>
-            <div type_one><p>Grass</p></div>
-            <div type_two></div>
+            <p id = type_one>Grass</p>
         </div> <!-- Replace with get_sprite()-->
         <div class="p-2">
             <h5>Stats</h5>
@@ -25,8 +24,10 @@
                 </div>
             <h5>Abilities</h5>
                 <p>Overgrow
-                <img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' width = "15px"
-                    ,height = "15px"></p>
+                <img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "moreinfo"></p>
+        </div>
+        <div class = "p-2">
+            <button class = "btn btn-light" id = 'start' onclick = 'create_accordion()'> See Pokemon Moves </button>
         </div>
     </div>
     <p> All the characters this website references are trademarks of Nintendo </p>
