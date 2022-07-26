@@ -25,3 +25,22 @@ h5{
 #accordion{
     color:#ff6f68;
 }
+.pokemon_type_single{
+    background-size:contain;
+    color:azure;
+    margin-left: 10%;/**10% good for single type**/
+    padding: 5px;
+    border-radius:6px;
+    border: none;
+}
+.pokemon_type_dual{
+    background-size:contain;
+    color:azure;
+    margin-left: 5%;/**10% good for single type**/
+    padding: 5px;
+    border-radius:6px;
+    border: none;
+}
+#Grass{
+    background-color:#98BF64;
+}

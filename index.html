@@ -14,8 +14,8 @@
         <div class="p-2">     
             <h4>Bulbasaur</h4> <!--Replace with get_name()-->
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'width = "300px" height = "300px">
-            <h5> Types </h5>
-            <p id = type_one>Grass</p>
+            <h5 id = 'types'> Types </h5>
+            <script>create_types()</script>
         </div> <!-- Replace with get_sprite()-->
         <div class="p-2">
             <h5>Stats</h5>
@@ -27,7 +27,7 @@
                 <img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "moreinfo"></p>
         </div>
         <div class = "p-2">
-            <button class = "btn btn-light" id = 'start' onclick = 'create_accordion()'> See Pokemon Moves </button>
+            <button id = pokemon_moves onclick = 'create_accordion()'> See Pokemon Moves </lu>
         </div>
     </div>
     <p> All the characters this website references are trademarks of Nintendo </p>
