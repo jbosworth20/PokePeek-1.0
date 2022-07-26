@@ -36,7 +36,8 @@ h5{
 .pokemon_type_dual{
     background-size:contain;
     color:azure;
-    margin-left: 5%;/**10% good for single type**/
+    margin-left: 5%;
+    margin-right: 5%;
     padding: 5px;
     border-radius:6px;
     border: none;
