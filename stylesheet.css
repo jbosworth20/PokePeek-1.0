@@ -40,9 +40,59 @@ h5{
     border-radius:6px;
     border: none;
 }
-#Grass{
+#Normal{
+    background-color:#BEBEBE;
+}
+#Flying{
+    background-color:#9867C5;
+}
+#Poison{
+    background-color:#710193;
+}
+#Ground{
+    background-color:#D8B863;
+}
+#Rock{
+    background-color:#795C34;
+}
+#Bug{
     background-color:#98BF64;
 }
+#Ghost{
+    background-color:#734F96;
+}
+#Steel{
+    background-color:#957A81;
+}
+#Fire{
+    background-color: #FC6A03;
+}
+#Water{
+    background-color: #63C5DA;
+}
+#Grass{
+    background-color: #74B72E;
+}
+#Electric{
+    background-color: #FFD801;
+}
+#Psychic{
+    background-color:#FE7F9C;
+}
+#Ice{
+    background-color:#82EEFD;
+}
+#Dragon{
+    background-color:#8F00FF;
+}
+#Dark{
+    background-color:#2E1503;
+}
+#Fairy{
+    background-color:#FCBACB;
+}
+
+
 .disclamer{
     font-size:10px;
     color:gray;
