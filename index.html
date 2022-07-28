@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <head>
-    <Title> PokemonPeek</Title>
+    <Title> Poké Peek</Title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet.css">
     <script src = "code.js"> </script>
 </head>
 <body>
-    <h1> Pokemon Info </h1>
+    <h1> Poké Peek </h1>
     <p><input type = 'text' id = 'find_pokemon' placeholder = "Find Pokemon"> 
-    <img src = 'https://icon-library.com/images/find-icon-png/find-icon-png-9.jpg' id = 'search' onclick = 'grab_pokemon_name()'></p>
+    <img src = 'https://icon-library.com/images/find-icon-png/find-icon-png-9.jpg' id = 'search_icon' onclick = 'grab_pokemon_name()'></p>
     <p></p>
     <div class="d-flex flex-row">
         <div class="p-2">     
-            <h4>Bulbasaur</h4> <!--Replace with get_name()-->
+            <h2>Bulbasaur</h2> <!--Replace with get_name()-->
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png' id = sprite><!-- Replace with get_sprite()-->
             <h5 id = 'types'> Types </h5>
             <button class = "pokemon_type_dual" id = type_1>Type</button>
@@ -26,10 +26,17 @@
                 </div>
             <h5>Abilities</h5>
                 <p>Overgrow
-                <img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "moreinfo"></p>
+                <img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "more_info_icon"></p>
         </div>
         <div class = "p-2">
-            <button id = pokemon_moves onclick = 'create_accordion()'> See Pokemon Moves </lu>
+            <h5>Moves</h5>
+            <div id ="scrollbox" class = "border">
+                <script>create_sliding_list()</script>
+                    <p id = "begin" onclick = show_move()>Testing</p>
+            </div>
+        </div>
+        <div class = "p-2">
+            <h5 id = "move-name">Razorleaf</h5>
         </div>
     </div>
     <p></p>
