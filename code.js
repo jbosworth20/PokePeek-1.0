@@ -1,3 +1,12 @@
+function remove_buttons(given_id,needed_amount){
+    var parent = document.getElementById(given_id);
+    var total_children = parent.childElementCount;
+    var amount = total_children - needed_amount;
+    for(var i = total_children;i>amount;i--){
+        var delete_child = document.getElementById(given_id +"_"+i);
+        parent.removeChild(delete_child);
+    }
+}
 function create_types(){ 
     var total_types = 1; /*Change total_types to size of array containing types*/ 
     var type_1 = document.getElementById('type_1');
@@ -16,6 +25,11 @@ function create_types(){
     }
 }
 
+function create_move_effectiveness(){
+    var total_strong = 3;
+    var total_weak = 6;
+    var total_resist = 0;
+}
 
 function create_sliding_list(){
     /*Change 5 to whatever the move set # is from the query*/

@@ -15,8 +15,10 @@
             <h2>Bulbasaur</h2> <!--Replace with get_name()-->
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png' id = sprite><!-- Replace with get_sprite()-->
             <h5 id = 'types'> Types </h5>
-            <button class = "pokemon_type_dual" id = type_1>Type</button>
-            <button class = "pokemon_type_dual" id = type_2>Type</button>
+            <div id = 'pokemon_types'>
+                <button class = "pokemon_type_dual child_1" id = "pokemon_types_1">Type</button>
+                <button class = "pokemon_type_dual child_2" id = "pokemon_types_2">Type</button>
+            </div>
             <script>create_types()</script>
         </div> 
         <div class="p-2">
@@ -32,11 +34,47 @@
             <h5>Moves</h5>
             <div id ="scrollbox" class = "border">
                 <script>create_sliding_list()</script>
-                    <p id = "begin" onclick = show_move()>Testing</p>
+                    <p id = "begin" onclick = show_move()>Razorleaf</p>
             </div>
         </div>
-        <div class = "p-2">
-            <h5 id = "move-name">Razorleaf</h5>
+        <div class="p-2">
+            <h5 id = "move_name">Razorleaf</h5>
+            <p class = "border" id = "move_desc">Sharp-edged leaves are launched to slash at opposing Pokémon. Critical hits land more easily.</p>
+            <h6>Accuracy:</h6>
+            <div class="d-flex flex-row">
+                <p>x2 Damage:</p>
+                <span>
+                    <div id = strong_to>
+                        <button class = "move_effectiveness" id = "strong_to_1">Test</button>
+                        <button class = "move_effectiveness" id = "strong_to_2">Test</button>
+                        <button class = "move_effectiveness" id = "strong_to_3">Test</button>
+                        <button class = "move_effectiveness" id = "strong_to_4">Test</button>
+                        <button class = "move_effectiveness" id = "strong_to_5">Test</button>
+                    </div>
+                </span>
+            </div>
+            <script>remove_buttons("strong_to",3)</script>
+            <div class="d-flex flex-row">
+                <p>x1/2 Damage:</p>
+                <span>
+                    <div id = weak_to>
+                        <button class = "move_effectiveness" id = "weak_to_1">Test</button>
+                        <button class = "move_effectiveness" id = "weak_to_2">Test</button>
+                        <button class = "move_effectiveness" id = "weak_to_3">Test</button>
+                        <button class = "move_effectiveness" id = "weak_to_4">Test</button>
+                        <button class = "move_effectiveness" id = "weak_to_5">Test</button>
+                        <button class = "move_effectiveness" id = "weak_to_6">Test</button>
+                    </div>
+                </span>
+            </div>
+            <div class = "d-flex flex-row">
+                <p>No Effect:</p>
+                <span>
+                    <div id = no_effect_to>
+                        <button class = "move_effectiveness child_1">Test</button>
+                    </div>
+                </span>
+            </div>
         </div>
     </div>
     <p></p>

@@ -14,6 +14,13 @@ h4{
 h5{
     text-align:center;
 }
+#move_desc{
+    margin-left:20%;
+    width:240px;
+}
+#move_name{
+    margin-left: 40%;
+}
 #search_icon{
     width: 25px;
     height: 25px;
@@ -28,6 +35,12 @@ h5{
 }
 #scrollbox {
     overflow: auto;
+}
+.move_effectiveness{
+    color:azure;
+    padding: 5px;
+    border-radius:6px;
+    border: none;
 }
 .pokemon_type_single{
     color:azure;
