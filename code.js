@@ -1,21 +1,20 @@
 function remove_buttons(given_id,needed_amount){
     var parent = document.getElementById(given_id);
     var total_children = parent.childElementCount;
-    var amount = total_children - needed_amount;
-    for(var i = total_children;i>amount;i--){
+    for(var i = total_children;i>needed_amount;i--){
         var delete_child = document.getElementById(given_id +"_"+i);
         parent.removeChild(delete_child);
     }
 }
 function create_types(){ 
     var total_types = 1; /*Change total_types to size of array containing types*/ 
-    var type_1 = document.getElementById('type_1');
-    var type_2 = document.getElementById('type_2');
+    var type_1 = document.getElementById('pokemon_type_1');
+    var type_2 = document.getElementById('pokemon_type_2');
     var name_of_type_1 = 'Grass' /*Change this to whatever the element is from the json*/
     type_1.innerHTML = name_of_type_1;
     type_1.id = name_of_type_1;
     if(total_types == 1){
-        type_2.remove();
+        remove_buttons("pokemon_type",total_types);
         type_1.classList.remove('pokemon_type_dual');
         type_1.className = 'pokemon_type_single';
     }else{
@@ -29,6 +28,9 @@ function create_move_effectiveness(){
     var total_strong = 3;
     var total_weak = 6;
     var total_resist = 0;
+    remove_buttons("strong_to",total_strong);
+    remove_buttons("weak_to",total_weak);
+    remove_buttons("no_effect_to",total_resist);
 }
 
 function create_sliding_list(){
