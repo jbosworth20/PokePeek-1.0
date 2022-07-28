@@ -15,9 +15,9 @@
             <h2>Bulbasaur</h2> <!--Replace with get_name()-->
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png' id = sprite><!-- Replace with get_sprite()-->
             <h5 id = 'types'> Types </h5>
-            <div id = 'pokemon_types'>
-                <button class = "pokemon_type_dual child_1" id = "pokemon_types_1">Type</button>
-                <button class = "pokemon_type_dual child_2" id = "pokemon_types_2">Type</button>
+            <div id = 'pokemon_type'>
+                <button class = "pokemon_type_dual" id = "pokemon_type_1">Type</button>
+                <button class = "pokemon_type_dual" id = "pokemon_type_2">Type</button>
             </div>
             <script>create_types()</script>
         </div> 
@@ -53,7 +53,6 @@
                     </div>
                 </span>
             </div>
-            <script>remove_buttons("strong_to",3)</script>
             <div class="d-flex flex-row">
                 <p>x1/2 Damage:</p>
                 <span>
@@ -71,11 +70,12 @@
                 <p>No Effect:</p>
                 <span>
                     <div id = no_effect_to>
-                        <button class = "move_effectiveness child_1">Test</button>
+                        <button class = "move_effectiveness" id = "no_effect_to_1">Test</button>
                     </div>
                 </span>
             </div>
         </div>
+        <script>create_move_effectiveness()</script>
     </div>
     <p></p>
     <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER
