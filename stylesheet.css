@@ -1,8 +1,12 @@
+#find_pokemon{
+    width:20%;
+}
 h1{
     background-color: #ff6f68;
-    padding-bottom:20px;
-    color:white;
-    
+    color:white;  
+}
+h2{
+    text-align:center;
 }
 h4{
     text-align:center;
@@ -10,20 +14,20 @@ h4{
 h5{
     text-align:center;
 }
-#search{
+#search_icon{
     width: 25px;
     height: 25px;
 }
-#moreinfo{
+#sprite{
+    width:240px;
+    height:240px;
+}
+#more_info_icon{
     width: 20px;
     height: 20px;
 }
-#type_one{
-    background-color:green;
-    color:white;
-}
-#accordion{
-    color:#ff6f68;
+#scrollbox {
+    overflow: auto;
 }
 .pokemon_type_single{
     color:azure;
@@ -91,13 +95,7 @@ h5{
 #Fairy{
     background-color:#FCBACB;
 }
-
-
 .disclamer{
     font-size:10px;
     color:gray;
-}
-#sprite{
-    width:240px;
-    height:240px;
 }
