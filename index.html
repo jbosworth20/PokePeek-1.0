@@ -7,79 +7,54 @@
 </head>
 <body>
     <h1> Poké Peek </h1>
-    <p><input type = 'text' id = 'find_pokemon' placeholder = "Find Pokemon"> 
+    <p><input type = 'text' id = 'search_pokemon' placeholder = "Search for a Pokémon"> 
     <img src = 'https://icon-library.com/images/find-icon-png/find-icon-png-9.jpg' id = 'search_icon' onclick = 'grab_pokemon_name()'></p>
-    <p></p>
     <div class="d-flex flex-row">
         <div class="p-2">     
-            <h2>Bulbasaur</h2> <!--Replace with get_name()-->
-            <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png' id = sprite><!-- Replace with get_sprite()-->
-            <h5 id = 'types'> Types </h5>
-            <div id = 'pokemon_type'>
-                <button class = "pokemon_type_dual" id = "pokemon_type_1">Type</button>
-                <button class = "pokemon_type_dual" id = "pokemon_type_2">Type</button>
-            </div>
-            <script>create_types()</script>
-        </div> 
-        <div class="p-2">
-            <h5>Stats</h5>
-                <div class="border">
-                    <p>HP: 45</p><p>Attack: 49</p><p>Defense: 49</p><p>Sp Atk: 65</p><p>Sp Def: 65</p><p>Speed: 45</p>
-                </div>
-            <h5>Abilities</h5>
-                <p>Overgrow
-                <img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "more_info_icon"></p>
+            <h5 class = "label">Bulbasaur</h5> <!--Replace with get_name()-->
+            <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'class = "box" id = sprite><!-- Replace with get_sprite()-->
+            <h5> Types: 
+            <button class = "pokemon_type_dual" id = "pokemon_type_1" onclick = show_weaknesses()>Type</button>
+            <button class = "pokemon_type_dual" id = "pokemon_type_2">Type</button><img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "more_info_icon">
+            </h5>
+                <script>create_types()</script>
         </div>
-        <div class = "p-2">
-            <h5>Moves</h5>
-            <div id ="scrollbox" class = "border">
+        <div class="p-2 stats_full">
+            <h5 class = "label">Stats</h5>
+            <div class="stats box">
+                <p>&nbsp &nbsp &nbsp<b>HP:</b> 45</p>
+                <p>&nbsp &nbsp &nbsp<b>Atk:</b> 49</p>
+                <p>&nbsp &nbsp &nbsp<b>Def:</b> 49</p>
+                <p>&nbsp &nbsp &nbsp<b>Sp Atk:</b> 65</p>
+                <p>&nbsp &nbsp &nbsp<b>Sp Def:</b> 65</p>
+                <p>&nbsp &nbsp &nbsp<b>Speed:</b> 45</p>
+            </div>
+            <h5 class = "label">Abilities</h5>
+            <center><p>Overgrow <img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "more_info_icon"></p></center>
+            <center><p>Chlorophyll<img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "more_info_icon"></p></center>
+        </div>
+        <div id = "divide"></div>
+        <div class = "p-2 moves_full">
+            <h5 class = "label">Moves</h5>
+            <div class = 'box' id ="scrollbox">
                 <script>create_sliding_list()</script>
-                    <p id = "begin" onclick = show_move()>Razorleaf</p>
+                <p onclick = show_move()>Razorleaf</p>
+                <p onclick = show_move()>Razorleaf</p>
+                <p onclick = show_move()>Razorleaf</p>
+                <p onclick = show_move()>Razorleaf</p>
+                <p onclick = show_move()>Razorleaf</p>
+                <p onclick = show_move()>Razorleaf</p>
+                <p onclick = show_move()>Razorleaf</p>
             </div>
         </div>
         <div class="p-2">
-            <h5 id = "move_name">Razorleaf</h5>
-            <p class = "border" id = "move_desc">Sharp-edged leaves are launched to slash at opposing Pokémon. Critical hits land more easily.</p>
-            <h6>Accuracy:</h6>
-            <div class="d-flex flex-row">
-                <p>x2 Damage:</p>
-                <span>
-                    <div id = strong_to>
-                        <button class = "move_effectiveness" id = "strong_to_1">Test</button>
-                        <button class = "move_effectiveness" id = "strong_to_2">Test</button>
-                        <button class = "move_effectiveness" id = "strong_to_3">Test</button>
-                        <button class = "move_effectiveness" id = "strong_to_4">Test</button>
-                        <button class = "move_effectiveness" id = "strong_to_5">Test</button>
-                    </div>
-                </span>
-            </div>
-            <div class="d-flex flex-row">
-                <p>x1/2 Damage:</p>
-                <span>
-                    <div id = weak_to>
-                        <button class = "move_effectiveness" id = "weak_to_1">Test</button>
-                        <button class = "move_effectiveness" id = "weak_to_2">Test</button>
-                        <button class = "move_effectiveness" id = "weak_to_3">Test</button>
-                        <button class = "move_effectiveness" id = "weak_to_4">Test</button>
-                        <button class = "move_effectiveness" id = "weak_to_5">Test</button>
-                        <button class = "move_effectiveness" id = "weak_to_6">Test</button>
-                    </div>
-                </span>
-            </div>
-            <div class = "d-flex flex-row">
-                <p>No Effect:</p>
-                <span>
-                    <div id = no_effect_to>
-                        <button class = "move_effectiveness" id = "no_effect_to_1">Test</button>
-                    </div>
-                </span>
-            </div>
+            <h5 class = "label">Move Name</h5><center>
+                <p class = "box" id = "move_info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <p><b>Accuracy:</b> 95%</p>
+                <button>Type</button></center>
         </div>
-        <script>create_move_effectiveness()</script>
     </div>
-    <p></p>
-    <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER
-    Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
+    <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
         Fair use is a use permitted by copyright statute that might otherwise be infringing.</p>
 </body>
 </DOCTYPE>

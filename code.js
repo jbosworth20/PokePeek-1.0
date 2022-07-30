@@ -4,6 +4,7 @@ function remove_buttons(given_id,needed_amount){
     for(var i = total_children;i>needed_amount;i--){
         var delete_child = document.getElementById(given_id +"_"+i);
         parent.removeChild(delete_child);
+
     }
 }
 function create_types(){ 
@@ -14,7 +15,7 @@ function create_types(){
     type_1.innerHTML = name_of_type_1;
     type_1.id = name_of_type_1;
     if(total_types == 1){
-        remove_buttons("pokemon_type",total_types);
+        type_2.remove();
         type_1.classList.remove('pokemon_type_dual');
         type_1.className = 'pokemon_type_single';
     }else{
