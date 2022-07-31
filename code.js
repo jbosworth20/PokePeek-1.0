@@ -52,6 +52,7 @@ function create_sliding_list(){
 /** Need to get move info from move on power and pp */
 function show_move(){
     document.getElementById('move_section').style.visibility = "visible";
+    document.getElementById('move_info_section').style.visibility = "visible";
     document.getElementById('move_label').innerHTML = "Razorleaf"
     document.getElementById('move_info').innerHTML = "Sharp-edged leaves are launched to slash at opposing Pokémon. Critical hits land more easily."
 }
