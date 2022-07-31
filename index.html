@@ -8,20 +8,25 @@
 <body>
     <h1> Poké Peek </h1>
     <p><input type = 'text' id = 'search_pokemon' placeholder = "Search for a Pokémon"> 
-    <img src = 'https://icon-library.com/images/find-icon-png/find-icon-png-9.jpg' id = 'search_icon' onclick = 'grab_pokemon_name()'></p>
+    <img src = 'https://cdn-icons-png.flaticon.com/128/151/151773.png' id = 'search_icon' onclick = 'grab_pokemon_name()'></p>
     <div class="d-flex flex-row">
         <div class="p-2">     
-            <h5 class = "label">Bulbasaur</h5> <!--Replace with get_name()-->
+            <h3 class = "label" id = 'pokemon_name'>Bulbasaur</h3> <!--Replace with get_name()-->
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'class = "box" id = sprite><!-- Replace with get_sprite()-->
-            <h5> Types: 
-            <button class = "pokemon_type_dual" id = "pokemon_type_1" onclick = show_weaknesses()>Type</button>
-            <button class = "pokemon_type_dual" id = "pokemon_type_2">Type</button><img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "more_info_icon">
-            </h5>
-                <script>create_types()</script>
+            <div id = 'type_info'></div>
+            <p class = "inline"><b>Types: </b>
+            <p class = "inline pokemon_type" id = "pokemon_type_1">Type</p>
+            <p class = "inline pokemon_type" id = "pokemon_type_2">Type</p>
+            <script>create_types()</script>
+            <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "inline more_info_icon" onclick = "unhide('type_description')"></p>
+            <div id = 'type_description'>
+                <p class = 'type_item'><b>x2 dmg from: </b>bug,fire,flying,ice, and poison moves</p>
+                <p class = 'type_item'><b>x1/2 dmg from: </b>electric,grass, and water moves</p>
+            </div>
         </div>
         <div class="p-2 stats_full">
             <h5 class = "label">Stats</h5>
-            <div class="stats box">
+            <div class="box" id = "stats">
                 <p>&nbsp &nbsp &nbsp<b>HP:</b> 45</p>
                 <p>&nbsp &nbsp &nbsp<b>Atk:</b> 49</p>
                 <p>&nbsp &nbsp &nbsp<b>Def:</b> 49</p>
@@ -30,15 +35,15 @@
                 <p>&nbsp &nbsp &nbsp<b>Speed:</b> 45</p>
             </div>
             <h5 class = "label">Abilities</h5>
-            <center><p>Overgrow <img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "more_info_icon"></p></center>
-            <center><p>Chlorophyll<img src = 'https://icon-library.com/images/icon-for-question/icon-for-question-1.jpg' id = "more_info_icon"></p></center>
+            <center><p>Overgrow <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
+            <center><p>Chlorophyll<img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
         </div>
         <div id = "divide"></div>
         <div class = "p-2 moves_full">
             <h5 class = "label">Moves</h5>
             <div class = 'box' id ="scrollbox">
                 <script>create_sliding_list()</script>
-                <p onclick = show_move()>Razorleaf</p>
+                <p onclick = "show_move()">Razorleaf</p>
                 <p onclick = show_move()>Razorleaf</p>
                 <p onclick = show_move()>Razorleaf</p>
                 <p onclick = show_move()>Razorleaf</p>
@@ -47,14 +52,22 @@
                 <p onclick = show_move()>Razorleaf</p>
             </div>
         </div>
-        <div class="p-2">
-            <h5 class = "label">Move Name</h5><center>
-                <p class = "box" id = "move_info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        <div class="p-2" id = "move_section">
+            <h5 class = "label" id = "move_label">Move Name</h5><center>
+                <p class = "box" id = "move_info">Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+                ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum</p>
                 <p><b>Accuracy:</b> 95%</p>
                 <button>Type</button></center>
         </div>
     </div>
     <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
         Fair use is a use permitted by copyright statute that might otherwise be infringing.</p>
-</body>
+        <p><a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Chanut - Flaticon</a></p>
+        <p><a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Freepik - Flaticon</a></p>
+    </body>
 </DOCTYPE>
