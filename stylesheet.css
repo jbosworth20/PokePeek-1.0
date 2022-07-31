@@ -3,14 +3,22 @@ h1{
     background-color: #D21F3C;
     color:#F7F5EE;  
 }
-button{
-    color:azure;
-    padding: 5px;
-    border-radius:6px;
-    border: none;
+#pokemon_name{
+    margin-top:-4%;
 }
 .label{
     text-align:center;
+    font-weight:bold;
+}
+.more_info_icon{
+    width: 20px;
+    height: 20px;
+}
+.box{
+    background-color:white;
+    border-style:solid;
+    border-color:#C5C6D0;
+    border-radius:6px; 
 }
 /** Search Section**/
 #search_pokemon{
@@ -21,38 +29,47 @@ button{
     width: 25px;
     height: 25px;
 }
-.box{
-    background-color:white;
-    border-style:solid;
-    border-color:gray;
-    border-radius:6px; 
-}
 /**Sprite & Type**/
+#type_info{
+    margin-top:1%;
+}
 #sprite{
     width:240px;
     height:240px;
 }
-#pokemon_types{
-    overflow:hidden;
-    white-space:nowrap;
+#type_description{
+    visibility:hidden;
 }
-.pokemon_type_single{
-    margin-left: 2%;
+.type_item{
+    margin-top:-10px;
+    width:240px;
+    font-size:12px;
 }
-.pokemon_type_dual{
-    margin-left: 2%;
-    margin-right: 2%;
+.inline{
+    display:inline;
+    vertical-align:middle;
+}
+.pokemon_type{
+    color:white;
+    padding:4px;
+    width:30%;
+    text-align:center;
+    border-radius:6px;
 }
 /** Stats and Abilities**/
-.stats{
+#stats{
     height:240px;
     width:120px;
 }
-#more_info_icon{
-    width: 20px;
-    height: 20px;
+/** Between **/
+#divide{
+    border-left:gray solid 3px;
+    margin-top:-4.25%;
 }
 /**Move**/
+#move_section{
+    visibility:hidden;
+}
 #move_desc{
     width:240px;
     text-align:center;
@@ -62,10 +79,6 @@ button{
     height:240px;
     width:120px;
     text-align:center;
-}
-#divide{
-    border-left:gray solid 3px;
-    margin-top:-4.25%;
 }
 #move_info{
     height:240px;
