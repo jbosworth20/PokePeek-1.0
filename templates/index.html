@@ -7,11 +7,13 @@
 </head>
 <body>
     <h1> Poké Peek </h1>
-    <p><input type = 'text' id = 'search_pokemon' placeholder = "Search for a Pokémon"> 
-    <img src = 'https://cdn-icons-png.flaticon.com/128/151/151773.png' id = 'search_icon' onclick = 'grab_pokemon_name()'></p>
+    <form action="{{ url_for('form_submit') }}" method="POST">
+        <p><input type = 'text' id = 'search_pokemon' placeholder = "Search for a Pokémon"> 
+        <img src = 'https://cdn-icons-png.flaticon.com/128/151/151773.png' id = 'search_icon' onclick = "grab_pokemon_name()"></p>
+    </form>
     <div class="d-flex flex-row">
         <div class="p-2">     
-            <h3 class = "label" id = 'pokemon_name'>Bulbasaur</h3> <!--Replace with get_name()-->
+            <h3 class = "label" id = 'pokemon_name' name = 'pokmeon_name'>Bulbasaur</h3> <!--Replace with get_name()-->
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'class = "box" id = sprite><!-- Replace with get_sprite()-->
             <div id = 'type_info'></div>
             <p class = "inline"><b>Types: </b>
