@@ -48,6 +48,13 @@ function create_sliding_list(){
         document.getElementsById("scrollbox").appendChild(move,list);
     }
 }
+function get_move_type(){
+    var type = document.getElementById('move_type');
+    var name_of_type = 'Grass' /*Change this to whatever the element is from the json*/
+    type.innerHTML = name_of_type;
+    type.id = name_of_type;
+
+}
 /** Was thinking you auto populate item in list in scrollbox and pull info from name alone*/
 /** Need to get move info from move on power and pp */
 function show_move(){
