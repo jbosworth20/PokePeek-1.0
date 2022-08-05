@@ -53,17 +53,24 @@
             </div>
         </div>
         <div class="p-2" id = "move_section">
-            <h5 class = "label" id = "move_label">Move Name</h5><center>
-                <p class = "box" id = "move_info">Lorem ipsum dolor sit amet, consectetur adipiscing
+                <h5 class = "label" id = "move_label">Move Name</h5>
+                <center><p class = "box" id = "move_info">Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
                 ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
                 in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
                 sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                 mollit anim id est laborum</p></center>
-                <p><b>Accuracy:</b> 95%
+                <center><p id = 'move_stats'><b>Accuracy:</b> 95%
                 <b>Power:</b> 55
-                <b>PP:</b> 25</p>
+                <b>PP:</b> 25</p></center>
+                <center><p class = "inline"><b>Type: </b>
+                <p class = "inline pokemon_type" id = "move_type">Type</p></center><img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "inline more_info_icon" onclick = "unhide('move_type_description')"></p></center>
+                <script>get_move_type()</script>
+                <div id = 'move_type_description'>
+                    <p class = 'type_item'><b>x2 dmg to: </b>electric,grass, and water pokemon</p>
+                    <p class = 'type_item'><b>x1/2 dmg to: </b>bug,fire,flying,ice,and poison pokemon </p>
+                </div>
         </div>
 
     </div>
