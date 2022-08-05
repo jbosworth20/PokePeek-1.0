@@ -1,20 +1,24 @@
-from flask import Flask, render_template
+from flask import Flask,request, render_template
 import requests
 #Flask
 app = Flask(__name__)
-@app.route('/')
+#NOTE:Figure out how app routes work for different functions
+@app.route('/',methods = ['GET','POST'])
+#Using this to help: https://towardsdatascience.com/using-python-flask-and-ajax-to-pass-information-between-the-client-and-server-90670c64d688
 def home():
     return render_template('index.html')
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
 #Get Pokemon
-pokemon_name = "bulbasaur"
+pokemon_name = request.form.get("pokemon_name")
 if pokemon_name.lower() == "mimikyu":
     full_path = "https://pokeapi.co/api/v2/pokemon/778"
 else:
     full_path = "https://pokeapi.co/api/v2/pokemon/" + pokemon_name.lower()
 response = requests.get(full_path)
 json = response.json()
+print(pokemon_name)
 
 def get_name():
     name = json["name"]
