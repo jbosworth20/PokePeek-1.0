@@ -1,0 +1,22 @@
+h1{
+    font-size:100px;
+}
+#background{
+    background-color: #D21F3C;
+    color:white;
+    text-align:center;
+    padding-top:15%;
+    padding-bottom:15%;
+    margin-bottom:10%;
+}
+#search_pokemon_main{
+    width:90%;
+}
+#search_icon{
+    width:28px;
+    height:28px;
+    background-color:white;
+    border-style:solid;
+    border-color:white;
+    border-radius:6px; 
+}
