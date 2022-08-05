@@ -1,3 +1,15 @@
+function grab_pokemon_name(){
+    var pokemon_name = document.getElementById('search_pokemon').value
+    json_lookup = JSON.stringify(pokemon_name)
+    console.log(json_lookup)
+    alert(json_lookup)
+    $.ajax({
+        url:"/",
+        data:pokemon_name,
+        type:"POST",
+        contentType: "application/json",
+        data: JSON.stringify(json_lookup)});
+}
 function remove_buttons(given_id,needed_amount){
     var parent = document.getElementById(given_id);
     var total_children = parent.childElementCount;
@@ -65,8 +77,4 @@ function show_move(){
 }
 function show_tooltext(){
 
-}
-function grab_pokemon_name(){
-    var pokemon_name = document.getElementById('search_pokemon').value
-    alert(pokemon_name)
 }
