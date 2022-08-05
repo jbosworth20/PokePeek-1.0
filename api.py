@@ -2,14 +2,17 @@ from flask import Flask,request, render_template
 import requests
 #Flask
 app = Flask(__name__)
-#NOTE:Figure out how app routes work for different functions
 @app.route('/',methods = ['GET','POST'])
-#Using this to help: https://towardsdatascience.com/using-python-flask-and-ajax-to-pass-information-between-the-client-and-server-90670c64d688
 def home():
     return render_template('index.html')
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 
+@app.route('/<grab_pokemon_name()>',methods = ['GET','POST'])
+def get_pokemon_info():
+   if request.method == 'POST':
+      result = request.form("")
+      return render_template("result.html",result = result)
 #Get Pokemon
 pokemon_name = request.form.get("pokemon_name")
 if pokemon_name.lower() == "mimikyu":
