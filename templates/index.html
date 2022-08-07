@@ -8,19 +8,17 @@
 </head>
 <body>
     <div id = 'background'>
-    <center><h1> Poké Peek </h1></center>
-    <!-- Make it so that the below is dynamic-->
-    <p>Hello! Welcome to Poké Peek! Please search for a pokemon below so you can get a quick summary of it and its moves!</p>
-    <form action = "http://localhost:5000/pokemon_name" method = "POST">
-        <span>
-            <p><input type = 'text' id = 'search_pokemon_main' placeholder = "Search for a Pokémon">
-            <img src = 'https://cdn-icons.flaticon.com/png/512/3031/premium/3031293.png?token=exp=1659737534~hmac=33ec5c4e5d9e1a5e5c44b85ad0ec2ca4' id = 'search_icon' onclick = "grab_pokemon_name()"></p>
-        </span>
-    </form>
-</div>
-    
+        <center><h1> Poké Peek </h1></center>
+        <!-- Make it so that the below is dynamic-->
+        <p>Hello! Welcome to Poké Peek! Please search for a pokemon below so you can get a quick summary of it and its moves!</p>
+        <form action = "http://localhost:5000/pokemon" method = "POST">
+            <span>
+                <p><input type = 'text' id = 'search_pokemon' name = 'search' placeholder = "Search for a Pokémon">
+                <input type = "submit" value = "Submit">
+            </span>
+        </form>
+    </div>
     <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
         Fair use is a use permitted by copyright statute that might otherwise be infringing.</p>
-        <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Royyan Wijaya - Flaticon</a>
-    </body>
+</body>
 </DOCTYPE>
