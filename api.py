@@ -6,13 +6,10 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('index.html')
-
+#NOTE: An improvement would be to make this dynamic to get make route tailored to each pokemon
 @app.route("/pokemon",methods = ['POST','GET'])
-#@app.route('/pokemon/<pokemon_name>', methods = ['POST','GET']) -- Reuse this when I can make a redirect first
 def pokemon():
-    if request.method == 'POST':
-        #pokemon_name = request.form.get("search") -- Add this back when I can render name
-        #return render_template('pokemon.html',pokemon_name = pokemon_name)
+    if request.method == "POST":
         return redirect(url_for('pokemon'))
     return render_template('pokemon.html')
 if __name__ == '__main__':
