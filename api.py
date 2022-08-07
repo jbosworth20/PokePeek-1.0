@@ -1,18 +1,25 @@
-from flask import Flask,request, render_template
+from flask import *
 import requests
 #Flask
 app = Flask(__name__)
-@app.route('/',methods = ['GET','POST'])
+#The homepage
+@app.route('/')
 def home():
     return render_template('index.html')
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
 
-@app.route('/<grab_pokemon_name()>',methods = ['GET','POST'])
-def get_pokemon_info():
-   if request.method == 'POST':
-      result = request.form("")
-      return render_template("result.html",result = result)
+@app.route("/pokemon",methods = ['POST','GET'])
+#@app.route('/pokemon/<pokemon_name>', methods = ['POST','GET']) -- Reuse this when I can make a redirect first
+def pokemon():
+    if request.method == 'POST':
+        #pokemon_name = request.form.get("search") -- Add this back when I can render name
+        #return render_template('pokemon.html',pokemon_name = pokemon_name)
+        return redirect(url_for('pokemon'))
+    return render_template('pokemon.html')
+if __name__ == '__main__':
+    app.run(debug = True)
+#What goes on when the user clicks the search button
+
+
 #Get Pokemon
 pokemon_name = request.form.get("pokemon_name")
 if pokemon_name.lower() == "mimikyu":
