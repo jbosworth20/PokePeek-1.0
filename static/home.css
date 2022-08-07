@@ -8,16 +8,8 @@ h1{
     padding-top:15%;
     padding-bottom:15%;
 }
-#search_pokemon_main{
+#search_pokemon{
     width:90%;
-}
-#search_icon{
-    width:28px;
-    height:28px;
-    background-color:white;
-    border-style:solid;
-    border-color:white;
-    border-radius:6px; 
 }
 .disclamer{
     font-size:10px;
