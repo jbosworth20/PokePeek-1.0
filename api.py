@@ -1,47 +1,32 @@
-from flask import *
-import requests
-#Flask
-app = Flask(__name__)
-#The homepage
-@app.route('/')
-def home():
-    return render_template('index.html')
-#What goes on when the user clicks the search button
-@app.route("/search", methods = ['POST', 'GET'])
-def search():
-    if request.method == "POST":
-        pokemon_name = request.form['name']
-        return redirect(url_for('pokemon',name = pokemon_name))
-    return render_template('index.html')
-
-#The pokemon name route for the search
-@app.route("/pokemon/<name>")
-def pokemon(name):
-    return render_template('pokemon.html',name = name)
-if __name__ == '__main__':
-    app.run(debug = True)
-
 #Get Pokemon
-pokemon_name = request.form.get("pokemon_name")
-if pokemon_name.lower() == "mimikyu":
-    full_path = "https://pokeapi.co/api/v2/pokemon/778"
-else:
-    full_path = "https://pokeapi.co/api/v2/pokemon/" + pokemon_name.lower()
-response = requests.get(full_path)
-json = response.json()
-print(pokemon_name)
+from flask import *
+class api:
+    def __init__(self,pokemon_name):
+        self.pokemon_name = pokemon_name
+def get_pokemon(self):
+    name = self.pokemon_name
+    if name.lower() == "mimikyu":
+        full_path = "https://pokeapi.co/api/v2/pokemon/778"
+    else:
+        full_path = "https://pokeapi.co/api/v2/pokemon/" + name.lower()
+    response = request.get(full_path)
+    json = response.json()
+    return json
+def get_id(json):
+    id = json["id"]
+    return id
 
-def get_name():
+def get_name(json):
     name = json["name"]
     return name
 
-def get_types():
+def get_types(json):
     pokemon_types = []
     for types in json["types"]:
         pokemon_types.append(types.get('type').get('name'))
     return pokemon_types
 
-def get_stats():
+def get_stats(json):
     # 0 = hp 1 = atk 2 = def 3 = sp ak 4 = sp def & 5 = spd_stat
     stat_json = json["stats"]
     stats = []
@@ -59,7 +44,7 @@ def get_damage_multiplier(damage_response, input_list):
             damages.append(damage_type)
     return damages
 
-def get_moves():
+def get_moves(json):
     possible_moves = {}
     for moves in json["moves"]:
         ind_information = []
@@ -85,7 +70,7 @@ def get_moves():
         possible_moves[move_name] = ind_information
     return possible_moves
 
-def get_abilities():
+def get_abilities(json):
     abilities = {}
     for ability in json["abilities"]:
         ability_name = ability.get('ability').get('name')
@@ -96,7 +81,8 @@ def get_abilities():
             if 'en' in ability.get('language').get('name'):
                 abilities[ability_name] = ability.get('short_effect')
 
-def get_sprite():
+def get_sprite(json):
+    id_ = get_id(json)
     if(len(id_) == 1):
         id_ = "00" + id_
     elif(len(id_) == 2):
