@@ -10,7 +10,7 @@ def home():
 @app.route("/search", methods = ['POST', 'GET'])
 def search():
     if flask.request.method == "POST":
-        pokemon_name = flask.request.form['name']
+        pokemon_name = flask.request.form['search']
         pokemon = api(pokemon_name)
         pokemon_info = pokemon.get_pokemon()
         pokemon_name = pokemon.get_name(pokemon_info)
