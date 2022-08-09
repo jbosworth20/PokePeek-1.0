@@ -12,6 +12,7 @@ def get_pokemon(self):
     response = request.get(full_path)
     json = response.json()
     return json
+
 def get_id(json):
     id = json["id"]
     return id
