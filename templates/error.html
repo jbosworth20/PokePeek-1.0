@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <!--NOTE:Implement it so API supplies all info based name based on the search and can update have app route based on the name supplied-->
+    <Title> Poké Peek</Title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css')}}" />
+    <script src="{{ url_for('static', filename='code.js')}}"></script>
+</head>
+<body>
+    <div id = 'background'>
+        <center><h1> Poké Peek </h1></center> 
+        <!-- Make it so that the below is dynamic-->
+        <p>Hello! Welcome to Poké Peek! Please search for a pokemon name or id number below so you can get a quick summary of it and its moves!</p>
+        <form action = "http://localhost:5000/error" method = "POST">
+            <span>
+                <p><input type = 'text' id = 'search_pokemon' name = 'search' placeholder = "Search for a Pokémon">
+                <input type = "submit" value = "Submit">
+            </span>
+            <p id = "error"> That pokemon does not exist - please check your spelling/reference number</p>
+        </form>
+    </div>
+    <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
+        Fair use is a use permitted by copyright statute that might otherwise be infringing.</p>
+</body>
+</DOCTYPE>
