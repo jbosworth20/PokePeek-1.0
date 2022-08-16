@@ -40,8 +40,14 @@
                 <p>&nbsp &nbsp &nbsp<b>Speed:</b> {{data[2][5]}}</p>
             </div>
             <h5 class = "label">Abilities</h5>
-            <center><p>Overgrow <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
-            <center><p>Chlorophyll<img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
+            {% set ability_names = data[3].keys() | list %}
+            <center><p>{{ability_names[0].capitalize()}} <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
+            {% if data[3]|length > 1: %}
+            <center><p>{{ability_names[1].capitalize()}}<img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
+            {% endif %}
+            {% if data[3]|length > 2: %}
+            <center><p>{{ability_names[2].capitalize()}}<img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
+            {% endif %}
         </div>
         <div id = "divide"></div>
         <div class = "p-2 moves_full">
