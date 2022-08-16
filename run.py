@@ -31,9 +31,9 @@ def pokemon(name): #Make the pokemon api parts better
     pokemon_type = api_.get_types(json)
     pokemon_stats = api_.get_stats(json)
     pokemon_abilities = api_.get_abilities(json)
-    #pokemon_moves = api_.get_moves(json) <- Get this to work
+    pokemon_moves = api_.get_moves(json) 
     pokemon_sprite = api_.get_sprite(json)
-    pokemon_info.extend([pokemon_name,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_sprite])
+    pokemon_info.extend([pokemon_name,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves,pokemon_sprite])
     return render_template('pokemon.html',name = pokemon_info[0],data = pokemon_info) #issue is with html not this
 
 
