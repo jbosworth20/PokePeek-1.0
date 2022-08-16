@@ -57,9 +57,8 @@
         <div class = "p-2 moves_full">
             <h5 class = "label">Moves</h5>
             <div class = 'box' id ="scrollbox">
-                <script>create_sliding_list()</script>
-                {% for move in pokemon_moves %}
-                    <p onclick = "show_move()">{{move}}</p>
+                {% for move in data[4] %}
+                <p onclick = "show_move()">{{move.title()}}</p>
                 {% endfor %} 
             </div>
         </div>
