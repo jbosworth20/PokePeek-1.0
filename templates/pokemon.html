@@ -8,14 +8,14 @@
 </head>
 <body>
     <h1> Poké Peek </h1>
-    <form action = "http://localhost:5000/search" method = "POST">
+    <form action = "http://localhost:5000/search" method = "POST"> <!-- Make it so that this will take you to 404 if pokemon does not exist-->
         <p><input type = 'text' id = 'search_pokemon' name = 'search' placeholder = "Search for a Pokémon"> 
         <img src = 'https://cdn-icons-png.flaticon.com/128/151/151773.png' id = 'search_icon' onclick = "grab_pokemon_name()"></p>
     </form>
     <div class="d-flex flex-row">
         <div class="p-2">     
             <h3 class = "label" id = 'pokemon_name' name = 'pokemon_name'>{{data[0].title()}}</h3> <!-- Do this by form action and get with maybe a dict filled with ALL the info we need-->
-            <img src = {{data[4]}} class = "box" id = sprite><!-- Replace with get_sprite()-->
+            <img src = {{data[5]}} class = "box" id = sprite><!-- Replace with get_sprite()-->
             <div id = 'type_info'></div>
             <p class = "inline"><b>Types: </b>
             <p class = "inline pokemon_type" id = {{data[1][0].capitalize()}}>{{data[1][0].title()}}</p>
@@ -24,9 +24,9 @@
             {% endif %}
             <script>create_types()</script>
             <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "inline more_info_icon" onclick = "unhide('type_description')"></p>
-            <div id = 'type_description'>
-                <p class = 'type_item'><b>x2 dmg from: </b>bug,fire,flying,ice, and poison moves</p>
-                <p class = 'type_item'><b>x1/2 dmg from: </b>electric,grass, and water moves</p>
+            <div class = 'type_description'>
+                <p class = 'type_item type_description'><b>x2 dmg from: </b>bug,fire,flying,ice, and poison moves</p>
+                <p class = 'type_item type_description'><b>x1/2 dmg from: </b>electric,grass, and water moves</p>
             </div>
         </div>
         <div class="p-2 stats_full">
@@ -41,12 +41,16 @@
             </div>
             <h5 class = "label">Abilities</h5>
             {% set ability_names = data[3].keys() | list %}
-            <center><p>{{ability_names[0].title()}} <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
+            {% set ability_desc = data[3].values() | list %}
+            <center><p>{{ability_names[0].title()}} <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon" on_click = "unhide('ability_description')"></p></center>
+            <center><p class = 'ability_description'>{{ability_desc[0]}}</p></center>
             {% if data[3]|length > 1: %}
-            <center><p>{{ability_names[1].title()}}<img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
+            <center><p>{{ability_names[1].title()}}<img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon" on_click = "unhide('ability_description')"></p></center>
+            <center><p class = 'ability_description'>{{ability_desc[1]}}</p></center>
             {% endif %}
             {% if data[3]|length > 2: %}
-            <center><p>{{ability_names[2].title()}}<img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon"></p></center>
+            <center><p>{{ability_names[2].title()}}<img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "more_info_icon" on_click = "unhide('ability_description')"></p></center>
+            <center><p class = 'ability_description'>{{ability_desc[2]}}</p></center>
             {% endif %}
         </div>
         <div id = "divide"></div>
@@ -54,13 +58,9 @@
             <h5 class = "label">Moves</h5>
             <div class = 'box' id ="scrollbox">
                 <script>create_sliding_list()</script>
-                <p onclick = "show_move()">Razorleaf</p>
-                <p onclick = show_move()>Razorleaf</p>
-                <p onclick = show_move()>Razorleaf</p>
-                <p onclick = show_move()>Razorleaf</p>
-                <p onclick = show_move()>Razorleaf</p>
-                <p onclick = show_move()>Razorleaf</p>
-                <p onclick = show_move()>Razorleaf</p>
+                {% for move in pokemon_moves %}
+                    <p onclick = "show_move()">{{move}}</p>
+                {% endfor %} 
             </div>
         </div>
         <div class="p-2" id = "move_section">
