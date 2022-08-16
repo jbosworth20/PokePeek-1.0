@@ -15,7 +15,7 @@ class api:
 
     def get_id(self,json):
         id = json["id"]
-        return id
+        return str(id)
 
     def get_name(self,json):
         name = json["name"]
@@ -89,9 +89,11 @@ class api:
             id_ = "00" + id_
         elif(len(id_) == 2):
             id_ = "0" + id_
-        sprite_link = "https://bulbapedia.bulbagarden.net/wiki/File:" + \
-            id_ + self.get_name().capitalize() + ".png"
+        sprite_link = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + \
+            id_ + ".png"
+        print(sprite_link)
         return sprite_link
+    
     def confirm_legit(self,json):
         try:
             pokemon_json = self.get_pokemon()
