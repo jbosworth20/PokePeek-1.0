@@ -14,7 +14,7 @@
     </form>
     <div class="d-flex flex-row">
         <div class="p-2">     
-            <h3 class = "label" id = 'pokemon_name' name = 'pokemon_name'>Bulbasaur</h3> <!-- Do this by form action and get with maybe a dict filled with ALL the info we need-->
+            <h3 class = "label" id = 'pokemon_name' name = 'pokemon_name'>{{data[0].capitalize()}}</h3> <!-- Do this by form action and get with maybe a dict filled with ALL the info we need-->
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'class = "box" id = sprite><!-- Replace with get_sprite()-->
             <div id = 'type_info'></div>
             <p class = "inline"><b>Types: </b>
