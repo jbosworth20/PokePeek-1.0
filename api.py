@@ -5,10 +5,10 @@ class api:
 
     def get_pokemon(self):
         name = self.pokemon_name
-        if name.lower() == "mimikyu":
+        if str(name).lower() == "mimikyu":
             full_path = "https://pokeapi.co/api/v2/pokemon/778"
         else:
-            full_path = "https://pokeapi.co/api/v2/pokemon/" + name.lower()
+            full_path = "https://pokeapi.co/api/v2/pokemon/" + str(name).lower()
         response = requests.get(full_path)
         json = response.json()
         return json
@@ -19,7 +19,7 @@ class api:
 
     def get_name(self,json):
         name = json["name"]
-        return name
+        return str(name)
 
     def get_types(self,json):
         pokemon_types = []
@@ -92,3 +92,10 @@ class api:
         sprite_link = "https://bulbapedia.bulbagarden.net/wiki/File:" + \
             id_ + self.get_name().capitalize() + ".png"
         return sprite_link
+    def confirm_legit(self,json):
+        try:
+            pokemon_json = self.get_pokemon()
+            pokemon_name = self.get_name(pokemon_json)
+            return(pokemon_name)
+        except:
+            return("404")
