@@ -18,8 +18,10 @@
             <img src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'class = "box" id = sprite><!-- Replace with get_sprite()-->
             <div id = 'type_info'></div>
             <p class = "inline"><b>Types: </b>
-            <p class = "inline pokemon_type" id = "pokemon_type_1">Type</p>
-            <p class = "inline pokemon_type" id = "pokemon_type_2">Type</p>
+            <p class = "inline pokemon_type" id = {{data[1][0].capitalize()}}>{{data[1][0].capitalize()}}</p>
+            {% if data[1]|length > 1: %}
+            <p class = "inline pokemon_type" id = {{data[1][1].capitalize()}}>{{data[1][1].capitalize()}}</p>
+            {% endif %}
             <script>create_types()</script>
             <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "inline more_info_icon" onclick = "unhide('type_description')"></p>
             <div id = 'type_description'>
