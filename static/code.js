@@ -1,24 +1,3 @@
-function grab_pokemon_name(){
-    var pokemon_name = document.getElementById('search_pokemon').value
-    json_lookup = JSON.stringify(pokemon_name)
-    console.log(json_lookup)
-    alert(json_lookup)
-    $.ajax({
-        url:"/",
-        data:pokemon_name,
-        type:"POST",
-        contentType: "application/json",
-        data: JSON.stringify(json_lookup)});
-}
-function remove_buttons(given_id,needed_amount){
-    var parent = document.getElementById(given_id);
-    var total_children = parent.childElementCount;
-    for(var i = total_children;i>needed_amount;i--){
-        var delete_child = document.getElementById(given_id +"_"+i);
-        parent.removeChild(delete_child);
-
-    }
-}
 function unhide(id_to_unhide){ /** Make this so it so that there is a class we call and then based on individual ID we determine what is visible */
     var element = document.getElementById(id_to_unhide);
     if(element.style.visibility == "hidden"){
@@ -59,7 +38,4 @@ function show_move(){
     document.getElementById('move_info_section').style.visibility = "visible";
     document.getElementById('move_label').innerHTML = "Razorleaf"
     document.getElementById('move_info').innerHTML = "Sharp-edged leaves are launched to slash at opposing Pokémon. Critical hits land more easily."
-}
-function show_tooltext(){
-
 }
