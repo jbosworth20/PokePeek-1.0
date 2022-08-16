@@ -18,7 +18,10 @@ class api:
         return str(id)
 
     def get_name(self,json):
-        name = json["name"]
+        if(json["name"] == "mimikyu-disguised"):
+            name = "mimikyu"
+        else:
+            name = json["name"]
         return str(name)
 
     def get_types(self,json):
