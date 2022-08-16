@@ -37,8 +37,12 @@ h1{
     width:240px;
     height:240px;
 }
-#type_description{
+.type_description{
     visibility:hidden;
+}
+.ability_description{
+    visibility:hidden;
+    width:120px;
 }
 .type_item{
     margin-top:-10px;
