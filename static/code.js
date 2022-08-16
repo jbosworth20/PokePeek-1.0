@@ -27,21 +27,6 @@ function unhide(id_to_unhide){ /** Make this so it so that there is a class we c
         element.style.visibility = "hidden";
     }
 }
-function create_types(){ 
-    var total_types = 1; /*Change total_types to size of array containing types*/ 
-    var type_1 = document.getElementById('pokemon_type_1');
-    var type_2 = document.getElementById('pokemon_type_2');
-    var name_of_type_1 = 'Grass' /*Change this to whatever the element is from the json*/
-    type_1.innerHTML = name_of_type_1;
-    type_1.id = name_of_type_1;
-    if(total_types == 2){
-        var name_of_type_2 = "Fairy" /*Change this to whatever the element is from the json*/
-        type_2.innerHTML = name_of_type_2;
-        type_2.id = name_of_type_2;
-    }else{
-        type_2.remove();
-    }
-}
 function create_move_effectiveness(){
     var total_strong = 3;
     var total_weak = 6;
