@@ -18,9 +18,9 @@
             <img src = {{data[1]}} class = "box" id = sprite><!-- Replace with get_sprite()-->
             <div id = 'type_info'></div>
             <p class = "inline"><b>Types: </b>
-            <p class = "inline pokemon_type" id = {{data[2][0].capitalize()}}>{{data[2][0].title()}}</p>
+            <p class = "inline pokemon_type {{data[2][0].capitalize()}}">{{data[2][0].title()}}</p>
             {% if data[2]|length > 1: %}
-            <p class = "inline pokemon_type" id = {{data[2][1].capitalize()}}>{{data[2][1].title()}}</p>
+            <p class = "inline pokemon_type {{data[2][1].capitalize()}}">{{data[2][1].title()}}</p>
             {% endif %}
             <script>create_types()</script>
             <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "inline more_info_icon" onclick = "unhide('type_description')"></p>
@@ -64,12 +64,12 @@
         </div>
         {% for move in data[5]%}
             <div class= "p-2" id = "{{move.title()}}_info" style = "visibility:hidden;"> <!-- Can you track what index the name is for tuple?-->
-                <center><p>{{move.title()}}</p></center>
-                <center><p class = "box">{{data[5][move][0]}}</p></center>
+                <center><h5 class = "label">{{move.title()}}</h5></center>
+                <center><p class = "box" id = 'move_description'>{{data[5][move][0]}}</p></center>
                 <center><p><b>Accuracy:</b>{{data[5][move][1]}}
                 <b>Power:</b> {{data[5][move][2]}}
                 <b>PP:</b> {{data[5][move][3]}}</p></center>
-            <center><p class = "inline" id = "{{data[5][move][4]}}"><b>Type:</b> {{data[5][move][4]}}
+            <center><p class = "inline"><b>Type: </b></p><p class = "inline pokemon_type {{data[5][move][4].title()}}">{{data[5][move][4].title()}}</p>
                 {% endfor %}
         </div>
 
