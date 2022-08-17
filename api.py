@@ -48,13 +48,38 @@ class api:
                 damages.append(damage_type)
         return damages
 
-    def get_moves(self,json): #Try to get name from pokemon page and then get individual move info on click
-        move_names = []
+    def get_moves(self,json): #Try to get name from pokemon page and then get individual move info on click and make it a tuple
+        moves = {}
         move_json = json["moves"]
         for i, move in enumerate(move_json,start = 0):
-            move_names.append(move_json[i].get("move").get("name")) 
-        return move_names
+            move_info = []
+            #Name
+            move_name = move_json[i].get("move").get("name")
+            link = "https://pokeapi.co/api/v2/move/" + move_name
+            move_response = requests.get(link).json()
+            #Description
+            description = move_response.get("effect_entries")[0].get('effect')
+            print(description)
+            move_info.append(description)
+            #Accuracy
+            accuracy = move_response.get("accuracy")
+            move_info.append(accuracy)
+            #Power
+            power = move_response.get("power")
+            move_info.append(power)
+            #PP
+            pp = move_response.get("pp")
+            move_info.append(move_response.get(pp))
+            #Type
+            type_ = move_response.get("type").get("name")
+            move_info.append(type_)
+            moves[move_name] = move_info
+        return moves
         
+    def get_move_info(self, move_name): #Use this method by getting name from get_moves and then finding the key = move and then grabbing move_info
+        move = {}
+        move_info = []
+       
 
     def get_abilities(self,json):
         abilities = {}
@@ -67,26 +92,7 @@ class api:
                 if 'en' in ability.get('language').get('name'):
                     abilities[ability_name] = ability.get('short_effect')
         return abilities
-    #def get_moves_info(move_name): #Confirm that logic is good
-        #move_info = []
-            # Name
-        #move_name = "https://pokeapi.co/api/v2/move/" + move_name
-        #move_response = requests.get(move_name).json()
-        # Description
-        #move_info.append(move_response.get("effect_entries")[0].get('short_effect'))
-        # Accuracy
-        #move_info.append(move_response.get("accuracy"))
-        # Type
-        #type_path = "https://pokeapi.co/api/v2/type/" + move_response.get("type").get("name")
-        #move_info.append(move_response.get("type").get("name"))
-        # Damage Multiplier
-        #damage_list = ["double_damage_from", "double_damage_to",
-                    #"half_damage_from", "half_damage_to", "no_damage_to"]
-        #damage_types = self.get_damage_multiplier(requests.get(type_path).json()[
-                                            #"damage_relations"], damage_list)
-        #move_info.append(damage_types)
-        # NOTE Need from damage types from this array for the pokemon
-        #return move_info
+
     def get_sprite(self,json):
         id_ = self.get_id(json)
         if(len(id_) == 1):
@@ -95,7 +101,6 @@ class api:
             id_ = "0" + id_
         sprite_link = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + \
             id_ + ".png"
-        print(sprite_link)
         return sprite_link
     
     def confirm_legit(self,json):
