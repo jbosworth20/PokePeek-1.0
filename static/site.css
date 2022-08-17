@@ -37,10 +37,18 @@ h1{
     width:240px;
     height:240px;
 }
-.type_description{
+#type_description{
     visibility:hidden;
 }
-.ability_description{
+#ability_1_description{
+    visibility:hidden;
+    width:120px;
+}
+#ability_2_description{
+    visibility:hidden;
+    width:120px;
+}
+#ability_3_description{
     visibility:hidden;
     width:120px;
 }
@@ -78,10 +86,6 @@ h1{
 #move_section{
     visibility:hidden;
 }
-#move_desc{
-    width:240px;
-    text-align:center;
-}
 #scrollbox {
     overflow: auto;
     height:240px;
@@ -91,9 +95,6 @@ h1{
 #move_info{
     height:240px;
     width:360px;
-}
-#move_type_description{
-    visibility:hidden;
 }
 /**#move_stats{
     margin-top:-5%;
