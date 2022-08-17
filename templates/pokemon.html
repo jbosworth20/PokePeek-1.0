@@ -63,7 +63,7 @@
             </div>
         </div>
         {% for move in data[5]%}
-            <div class= "p-2" id = "{{move.title()}}_info" style = "visibility:hidden;"> <!-- Can you track what index the name is for tuple?-->
+            <div class= "p-2" id = "{{move.title()}}_info" style = "visibility:hidden; width:500px"> <!-- Can you track what index the name is for tuple?-->
                 <center><h5 class = "label">{{move.title()}}</h5></center>
                 <center><p class = "box" id = 'move_description'>{{data[5][move][0]}}</p></center>
                 <center><p><b>Accuracy:</b>{{data[5][move][1]}}
