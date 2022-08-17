@@ -27,15 +27,14 @@ def pokemon(name): #Make the pokemon api parts better
     api_ = api(name)
     json = api_.get_pokemon()
     pokemon_info = []
-    pokemon_name = api_.get_name(json)
-    pokemon_type = api_.get_types(json)
-    pokemon_stats = api_.get_stats(json)
-    pokemon_abilities = api_.get_abilities(json)
-    pokemon_moves = api_.get_moves(json) 
-    pokemon_sprite = api_.get_sprite(json)
-    pokemon_info.extend([pokemon_name,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves,pokemon_sprite])
+    pokemon_name = api_.get_name(json) #0
+    pokemon_sprite = api_.get_sprite(json)#1
+    pokemon_type = api_.get_types(json)#2
+    pokemon_stats = api_.get_stats(json)#3
+    pokemon_abilities = api_.get_abilities(json)#4
+    pokemon_moves = api_.get_moves(json) #5
+    pokemon_info.extend([pokemon_name,pokemon_sprite,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves])
     return render_template('pokemon.html',name = pokemon_info[0],data = pokemon_info) #issue is with html not this
-
 
 @app.route("/error",  methods = ['POST', 'GET'])
 def error():
