@@ -99,9 +99,6 @@ h1{
 /**#move_stats{
     margin-top:-5%;
 }**/
-#move_description{
-    height:240px;
-}
 /** Pokemon Types - Look into having one id and having javascript set the color depending on what the type is **/
 .Normal{
     background-color:#BEBEBE;
