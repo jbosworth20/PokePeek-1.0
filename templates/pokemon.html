@@ -22,12 +22,6 @@
             {% if data[2]|length > 1: %}
             <p class = "inline pokemon_type {{data[2][1].capitalize()}}">{{data[2][1].title()}}</p>
             {% endif %}
-            <script>create_types()</script>
-            <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' class = "inline more_info_icon" onclick = "unhide('type_description')"></p>
-            <div id = 'type_description'>
-                <p class = 'type_item'><b>x2 dmg from: </b>bug,fire,flying,ice, and poison moves</p>
-                <p class = 'type_item'><b>x1/2 dmg from: </b>electric,grass, and water moves</p>
-            </div>
         </div>
         <div class="p-2 stats_full">
             <h5 class = "label">Stats</h5>
