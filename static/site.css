@@ -99,57 +99,60 @@ h1{
 /**#move_stats{
     margin-top:-5%;
 }**/
+#move_description{
+    height:240px;
+}
 /** Pokemon Types - Look into having one id and having javascript set the color depending on what the type is **/
-#Normal{
+.Normal{
     background-color:#BEBEBE;
 }
-#Flying{
+.Flying{
     background-color:#9867C5;
 }
-#Poison{
+.Poison{
     background-color:#710193;
 }
-#Ground{
+.Ground{
     background-color:#D8B863;
 }
-#Rock{
+.Rock{
     background-color:#795C34;
 }
-#Bug{
+.Bug{
     background-color:#98BF64;
 }
-#Ghost{
+.Ghost{
     background-color:#734F96;
 }
-#Steel{
+.Steel{
     background-color:#957A81;
 }
-#Fire{
+.Fire{
     background-color: #FC6A03;
 }
-#Water{
+.Water{
     background-color: #63C5DA;
 }
-#Grass{
+.Grass{
     background-color: #74B72E;
 
 }
-#Electric{
+.Electric{
     background-color: #FFD801;
 }
-#Psychic{
+.Psychic{
     background-color:#FE7F9C;
 }
-#Ice{
+.Ice{
     background-color:#82EEFD;
 }
-#Dragon{
+.Dragon{
     background-color:#8F00FF;
 }
-#Dark{
+.Dark{
     background-color:#2E1503;
 }
-#Fairy{
+.Fairy{
     background-color:#FCBACB;
 }
 .disclamer{
