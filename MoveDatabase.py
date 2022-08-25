@@ -5,14 +5,14 @@ from sqlite3 import *
 import requests
 from PokemonAPI import *
 
-class DataBase:
+class MoveDataBase:
     def __init__(self,pokemon_name):
         self.pokemon_name = pokemon_name
     
-    def create_table():
-        engine = create_engine('sqlite:///moves',echo = true)
+    def create_table(self):
+        engine = create_engine('sqlite:///moves')
         connection = engine.connect()
-        metadata = metadata()
+        metadata = MetaData()
         move_info = Table('move_info',metadata,
         Column('move_name',String(255),nullable = False),
         Column('description',String(2000),nullable = False),
@@ -23,11 +23,11 @@ class DataBase:
         return move_info
     
     def insert_moves(self): #Try to get name from pokemon page and then get individual move info on click and make it a tuple
-        move_database = self.create_table(self.pokemon)
-        pokemon = PokemonAPI(self.pokemon)
-        pokemon_info = pokemon.get_pokemon(self.pokemon)
+        move_database = self.create_table()
+        pokemon = PokemonAPI(self.pokemon_name)
+        pokemon_info = pokemon.get_pokemon()
         move_json = pokemon_info["moves"]
-        for i, move in move_json:
+        for i, move in enumerate(move_json,start = 0):
             move_info = []
             name = move_json[i].get("move").get("name")
             link = "https://pokeapi.co/api/v2/move/" + name
