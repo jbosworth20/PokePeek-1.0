@@ -1,4 +1,4 @@
-# PokePeek
+# PokéPeek
 ### A Simple Pokemon Website ### 
 Hello! This website is designed to be a quick and easy way to get important info on pokemon without having to scroll through detailed information is not gameplay relevant. 
 
