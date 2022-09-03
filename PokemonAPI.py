@@ -26,10 +26,43 @@ class PokemonAPI:
         return str(name)
 
     def get_types(self,json):
+        all_type_info = []
         pokemon_types = []
+        quarter_damage_types = []
+        half_damage_types = []
+        double_damage_types = []
+        quad_damage_types = []
+        no_damage_types = []
         for types in json["types"]:
-            pokemon_types.append(types.get('type').get('name'))
-        return pokemon_types
+            type = types.get('type').get('name')
+            pokemon_types.append(type)
+        all_type_info.append(pokemon_types)
+        for type in pokemon_types:
+            link = "https://pokeapi.co/api/v2/type/" + type
+            type_response = requests.get(link).json()
+            damage_relations = type_response.get("damage_relations")
+            for half_damage in damage_relations.get("half_damage_from"):
+                if half_damage.get("name") in half_damage_types:
+                    half_damage_types.remove(half_damage.get("name"))
+                    quarter_damage_types.append(half_damage.get("name"))
+                else:
+                    half_damage_types.append(half_damage.get("name"))
+            for double_damage in damage_relations.get("double_damage_from"):
+                if double_damage.get("name") in double_damage_types:
+                    double_damage_types.remove(double_damage.get("name"))
+                    quad_damage_types.apppend(double_damage.get("name"))
+                else:
+                    double_damage_types.append(double_damage.get("name"))
+            for no_damage in damage_relations.get("no_damage_from"):
+                if no_damage.get("name") not in no_damage_types:
+                    no_damage_types.append(no_damage.get("name"))
+        all_type_info.append(no_damage_types) #1
+        all_type_info.append(quarter_damage_types) #2
+        all_type_info.append(half_damage_types) #3
+        all_type_info.append(double_damage_types) #4
+        all_type_info.append(quad_damage_types) #5
+        print(all_type_info)
+        return all_type_info
 
     def get_stats(self,json):
         # 0 = hp 1 = atk 2 = def 3 = sp ak 4 = sp def & 5 = spd_stat
@@ -48,6 +81,7 @@ class PokemonAPI:
                     damage_type.append(entry.get("name"))
                 damages.append(damage_type)
         return damages
+
     def get_move_names(self,json):
         all_move_names = []
         move_json = json["moves"]
@@ -55,6 +89,7 @@ class PokemonAPI:
              move_name = move_json[i].get("move").get("name")
              all_move_names.append(move_name)
         return all_move_names
+
     def get_move_info(self,move_name): 
         link = "https://pokeapi.co/api/v2/move/" + move_name
         move_response = requests.get(link).json()
@@ -88,7 +123,6 @@ class PokemonAPI:
             id_ = "0" + id_
         sprite_link = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + \
             id_ + ".png"
-        
         return sprite_link
     
     def confirm_legit(self,json):
