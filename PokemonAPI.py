@@ -1,5 +1,6 @@
 import requests
-class api:
+from jinja2 import *
+class PokemonAPI:
     def __init__(self,pokemon_name):
         self.pokemon_name = pokemon_name
 
@@ -47,39 +48,25 @@ class api:
                     damage_type.append(entry.get("name"))
                 damages.append(damage_type)
         return damages
-
-    def get_moves(self,json): #Try to get name from pokemon page and then get individual move info on click and make it a tuple
-        moves = {}
+    def get_move_names(self,json):
+        all_move_names = []
         move_json = json["moves"]
-        for i, move in enumerate(move_json,start = 0):
-            move_info = []
-            #Name
-            move_name = move_json[i].get("move").get("name")
-            link = "https://pokeapi.co/api/v2/move/" + move_name
-            move_response = requests.get(link).json()
-            #Description
-            description = move_response.get("effect_entries")[0].get('effect')
-            print(description)
-            move_info.append(description)
-            #Accuracy
-            accuracy = move_response.get("accuracy")
-            move_info.append(accuracy)
-            #Power
-            power = move_response.get("power")
-            move_info.append(power)
-            #PP
-            pp = move_response.get("pp")
-            move_info.append(move_response.get(pp))
-            #Type
-            type_ = move_response.get("type").get("name")
-            move_info.append(type_)
-            moves[move_name] = move_info
-        return moves
-        
-    def get_move_info(self, move_name): #Use this method by getting name from get_moves and then finding the key = move and then grabbing move_info
-        move = {}
-        move_info = []
-       
+        for i,move in enumerate(move_json,start = 0):
+             move_name = move_json[i].get("move").get("name")
+             all_move_names.append(move_name)
+        return all_move_names
+    def get_move_info(self,move_name): 
+        link = "https://pokeapi.co/api/v2/move/" + move_name
+        move_response = requests.get(link).json()
+        move_info = {
+            "name": move_name,
+            "description": move_response.get("effect_entries")[0].get('effect'),
+            "accuracy": move_response.get("accuracy"),
+            "power": move_response.get("power"),
+            "pp": move_response.get("pp"),
+            "type": move_response.get("type").get("name")
+        }
+        return move_info
 
     def get_abilities(self,json):
         abilities = {}
@@ -101,6 +88,7 @@ class api:
             id_ = "0" + id_
         sprite_link = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + \
             id_ + ".png"
+        
         return sprite_link
     
     def confirm_legit(self,json):
