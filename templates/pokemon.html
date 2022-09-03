@@ -26,10 +26,23 @@
             <img src = {{data[1]}} class = "box" id = sprite>
             <div style = "margin-top:1%;"></div>
             <p class = "inline"><b>Types: </b>
-            {% for type in data[2]%}
-                <p class = "inline pokemon_type {{data[2][loop.index0].capitalize()}}">{{data[2][loop.index0].title()}}</p>
+            {% for type in data[2][0]%}
+                <p class = "inline pokemon_type {{data[2][0][loop.index0].capitalize()}}">{{data[2][0][loop.index0].title()}}</p>
             {% endfor %}
-            <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" class = "more_info_icon">
+            <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" class = "more_info_icon" onclick = "unhide('#type_info')">
+            <div id = "type_info" class = hidden> 
+                <p><b  style = "font-size:10px"> No Damage From:</b></p> 
+                    <p> {{data[2][1]}}</p>
+                <p><b  style = "font-size:10px"> x1/4 Damage From: </b></p>
+                        <p> {{data[2][2]}}</p>
+                <p><b  style = "font-size:10px"> x1/2 Damage From:</b></p>
+                        <p> {{data[2][3]}}</p>
+                <p><b  style = "font-size:10px"> x2 Damage From:</b></p>
+                    <p> {{data[2][4]}}</p>
+                <p><b  style = "font-size:10px"> x4 Damage From:</b></p>
+                    <p> {{data[2][5] }}</p>
+                
+            </div>
         </div>
         <div class="p-2">    
             <h5 class = "label">Stats</h5>
@@ -43,17 +56,16 @@
                     <p>&nbsp &nbsp &nbsp<b>Speed:</b> {{data[3][5]}}</p>
                 </div>
                 <div id = "abilities">
-                    <p><b>Abilities: </b>
+                    <center><p><b>Abilities: </b></center>
                         {% set ability_names = data[4].keys() | list %}
                         {% set ability_desc = data[4].values() | list %}
                         {% for abilility in data[4]%}
                             <p id = "{{ability_names[loop.index0].title()}}" style = "width: 400px">{{ability_names[loop.index0].title()}} <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "{{ability_names[loop.index0].title()}}-Button" class = "more_info_icon" onclick = "unhide('#{{ability_names[loop.index0].title()}}-Info')">
                             <p id = "{{ability_names[loop.index0].title()}}-Info" class = "hidden" style = "font-size:10px">{{ability_desc[loop.index0]}}</p>
-                            {% endfor %}
-                    </p>
+                        {% endfor %}
                     </div>
             </div> 
-            <div id = "divide"></div> 
+            <div class = "p-2" id = "divide"></div> 
         <div class = "p-2 moves_full">
             <h5 class = "label">Moves</h5> 
             <div class = "box scrollbox">
