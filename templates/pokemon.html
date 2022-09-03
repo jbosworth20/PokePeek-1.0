@@ -29,6 +29,7 @@
             {% for type in data[2]%}
                 <p class = "inline pokemon_type {{data[2][loop.index0].capitalize()}}">{{data[2][loop.index0].title()}}</p>
             {% endfor %}
+            <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" class = "more_info_icon">
         </div>
         <div class="p-2">    
             <h5 class = "label">Stats</h5>
@@ -46,16 +47,7 @@
                         {% set ability_names = data[4].keys() | list %}
                         {% set ability_desc = data[4].values() | list %}
                         {% for abilility in data[4]%}
-                            <p id = "{{ability_names[loop.index0].title()}}" style = "width: 400px">{{ability_names[loop.index0].title()}} <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "{{ability_names[loop.index0].title()}}-Button" class = "more_info_icon">
-                                <script>
-                                    $("#{{ability_names[loop.index0].title()}}-Button").click(function(){
-                                        if($("#{{ability_names[loop.index0].title()}}-Info").is(":visible")){
-                                            $("#{{ability_names[loop.index0].title()}}-Info").hide();
-                                        }else{
-                                            $("#{{ability_names[loop.index0].title()}}-Info").show();
-                                        }
-                                    }) 
-                                </script>
+                            <p id = "{{ability_names[loop.index0].title()}}" style = "width: 400px">{{ability_names[loop.index0].title()}} <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "{{ability_names[loop.index0].title()}}-Button" class = "more_info_icon" onclick = "unhide('#{{ability_names[loop.index0].title()}}-Info')">
                             <p id = "{{ability_names[loop.index0].title()}}-Info" class = "hidden" style = "font-size:10px">{{ability_desc[loop.index0]}}</p>
                             {% endfor %}
                     </p>
