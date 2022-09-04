@@ -61,7 +61,6 @@ class PokemonAPI:
         all_type_info.append(half_damage_types) #3
         all_type_info.append(double_damage_types) #4
         all_type_info.append(quad_damage_types) #5
-        print(all_type_info)
         return all_type_info
 
     def get_stats(self,json):
