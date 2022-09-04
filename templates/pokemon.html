@@ -87,9 +87,19 @@
                 {% endfor %} 
             </div>
         </div>
-        <div class= "p-2" id = "move_info" style = "visibility:hidden; width: 500px"> 
+        <!-- TO DO: 
+            - Make below section so there is only one move info box 
+            - have it be hidden by default and 
+            - make it blank on load
+            - pull data from the move name user clicks in the list 
+            - auto-populate the move info with it -->
+        <div class= "p-2" id = "move_info"> 
             <h5 class = "label"> Title </h5>
-            <p> Move </p>
+            <p class = "box" style = "width: 500px"> Move Description </p>
+            <p><b>Accuracy:</b></p>
+            <p><b>power: </b></p>
+            <p><b>pp: </b></p>
+            <p><b>type: </b></p>
         </div>
     </div>
     <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
