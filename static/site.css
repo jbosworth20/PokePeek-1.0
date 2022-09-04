@@ -1,10 +1,11 @@
 /** General Section**/
 h1{
     background-color: #D21F3C;
-    color:#F7F5EE;  
+    color:#F7F5EE;
+    font-size:270%;
 }
 #pokemon_name{
-    margin-top:-4%;
+    margin-top:-5%;
 }
 .label{
     text-align:center;
@@ -18,44 +19,13 @@ h1{
     background-color:white;
     border-style:solid;
     border-color:#C5C6D0;
-    border-radius:6px; 
+    border-radius:5%; 
 }
-/** Search Section**/
-#search_pokemon{
-    width:28%;
-    border-radius:6px;
-}
-#search_icon{
-    width: 25px;
-    height: 25px;
-}
+
 /**Sprite & Type**/
-#type_info{
-    margin-top:1%;
-}
 #sprite{
     width:240px;
     height:240px;
-}
-#type_description{
-    visibility:hidden;
-}
-#ability_1_description{
-    visibility:hidden;
-    width:120px;
-}
-#ability_2_description{
-    visibility:hidden;
-    width:120px;
-}
-#ability_3_description{
-    visibility:hidden;
-    width:120px;
-}
-.type_item{
-    margin-top:-10px;
-    width:240px;
-    font-size:12px;
 }
 .inline{
     display:inline;
@@ -67,38 +37,34 @@ h1{
     padding:4px;
     width:30%;
     text-align:center;
-    border-radius:6px;
+    border-radius:5px;
+}
+#type_info{
+    margin-top:5%
 }
 /** Stats and Abilities**/
 #stats{
+    position:relative;
     height:240px;
-    width:120px;
+    width:140px;
+}
+#abilities{
+    width:140px;
 }
 /** Between **/
 #divide{
     border-left:gray solid 3px;
-    margin-top:-4.25%;
+    margin-top:-29.20%;
+    height:1000px;
 }
 /**Move**/
-#span{
-    display:inline;
-}
-#move_section{
-    visibility:hidden;
-}
-#scrollbox {
+.scrollbox {
     overflow: auto;
     height:240px;
-    width:120px;
+    width:140px;
     text-align:center;
 }
-#move_info{
-    height:240px;
-    width:360px;
-}
-/**#move_stats{
-    margin-top:-5%;
-}**/
+
 /** Pokemon Types - Look into having one id and having javascript set the color depending on what the type is **/
 .Normal{
     background-color:#BEBEBE;
