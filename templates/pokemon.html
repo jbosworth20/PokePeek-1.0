@@ -30,17 +30,26 @@
                 <p class = "inline pokemon_type {{data[2][0][loop.index0].capitalize()}}">{{data[2][0][loop.index0].title()}}</p>
             {% endfor %}
             <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" class = "more_info_icon" onclick = "unhide('#type_info')">
-            <div id = "type_info" class = hidden> 
-                <p><b  style = "font-size:10px"> No Damage From:</b></p> 
-                    <p> {{data[2][1]}}</p>
-                <p><b  style = "font-size:10px"> x1/4 Damage From: </b></p>
-                        <p> {{data[2][2]}}</p>
-                <p><b  style = "font-size:10px"> x1/2 Damage From:</b></p>
-                        <p> {{data[2][3]}}</p>
-                <p><b  style = "font-size:10px"> x2 Damage From:</b></p>
-                    <p> {{data[2][4]}}</p>
-                <p><b  style = "font-size:10px"> x4 Damage From:</b></p>
-                    <p> {{data[2][5] }}</p>
+            <div id = "type_info" style = "font-size:10px;" class = hidden> 
+                {% set no = data[2][1]|string %}
+                {% set quarter = data[2][2]|string %}
+                {% set half = data[2][3]|string %}
+                {% set double = data[2][4]|string %}
+                {% set quad = data[2][5]|string %}
+                {%set no = no|replace("[",'') | replace("]",'')%}
+                {%set quarter = quarter|replace("[",'') | replace("]",'')|replace("'",'') %}
+                {%set quad = quad|replace("[",'') | replace("]",'')|replace("'",'') %}
+                {% if no|length %}
+                    <p><b  style = "font-size:10px"> No Damage From: </b>{{no}}</p>
+                {% endif %}
+                {% if quarter|length %}
+                <p><b  style = "font-size:10px"> x1/4 Damage From: </b>{{quarter}}</p>
+                {% endif %}
+                <p><b  style = "font-size:10px"> x1/2 Damage From: </b>{{half|replace("[",'') | replace("]",'')|replace("'",'')}}</p>
+                <p><b  style = "font-size:10px"> x2 Damage From: </b>{{ double|replace("[",'') | replace("]",'')|replace("'",'')}}</p>
+                {% if quad|length %}
+                <p><b  style = "font-size:10px"> x4 Damage From: </b>{{quad}}</p>
+                {% endif %}
                 
             </div>
         </div>
