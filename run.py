@@ -25,17 +25,18 @@ def search(): #This method is terrible - make it better in terms of making it si
 #The pokemon name route for the search
 @app.route("/pokemon/<name>")
 def pokemon(name): #Make the pokemon api parts better
-    api = PokemonAPI(name)
-    json = api.get_pokemon()
-    pokemon_info = []
-    pokemon_name = api.get_name(json) #0
-    pokemon_sprite = api.get_sprite(json)#1
-    pokemon_type = api.get_types(json)#2
-    pokemon_stats = api.get_stats(json)#3
-    pokemon_abilities = api.get_abilities(json)#4
-    pokemon_moves = api.get_move_names(json) #5
-    pokemon_info.extend([pokemon_name,pokemon_sprite,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves])
-    print()
+    if request.method == "GET":
+        api = PokemonAPI(name)
+        json = api.get_pokemon()
+        pokemon_info = []
+        pokemon_name = api.get_name(json) #0
+        pokemon_sprite = api.get_sprite(json)#1
+        pokemon_type = api.get_types(json)#2
+        pokemon_stats = api.get_stats(json)#3
+        pokemon_abilities = api.get_abilities(json)#4
+        pokemon_moves = api.get_move_names(json) #5
+        pokemon_info.extend([pokemon_name,pokemon_sprite,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves])
+        print()
     return render_template('pokemon.html',name = pokemon_info[0],data = pokemon_info) #issue is with html not this
 
 @app.route("/pokemon/<name>/<move_name>")
