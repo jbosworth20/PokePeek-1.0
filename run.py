@@ -46,8 +46,7 @@ def get_moves():
     return redirect(url_for('move',name = pokemon_name,move = move_name))
 @app.route("/<name>/<move>", methods = ['POST','GET']) #To get this to show up - try rendering page with pokemon_api call info for name and also tack on move_info
 def move(name,move):
-    pokemon_name = name
-    api = PokemonAPI(pokemon_name)
+    api = PokemonAPI(name)
     json = api.get_pokemon()
     pokemon_info = []
     pokemon_name = api.get_name(json) #0
@@ -56,9 +55,8 @@ def move(name,move):
     pokemon_stats = api.get_stats(json)#3
     pokemon_abilities = api.get_abilities(json)#4
     pokemon_moves = api.get_move_names(json) #5
-    move_name = move
     pokemon_info.extend([pokemon_name,pokemon_sprite,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves])
-    api = MoveAPI(move_name) 
+    api = MoveAPI(move) 
     move_info = api.get_move_info()
     move_name = move_info['name'] #6
     move_description = move_info['description'] #7
