@@ -64,6 +64,10 @@ h1{
     width:140px;
     text-align:center;
 }
+.list{
+    border: none;
+    background-color:white;
+}
 
 /** Pokemon Types - Look into having one id and having javascript set the color depending on what the type is **/
 .Normal{
