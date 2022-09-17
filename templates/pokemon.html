@@ -78,30 +78,34 @@
         <div class = "p-2 moves_full">
             <h5 class = "label">Moves</h5> 
             <div class = "box scrollbox">
-                {% set move_data= [] %}
+                <form action="/move" method="post">
+                    <input type = 'hidden' name = 'pokemon' value = {{data[0]}}>
                 {% for move in data[5]%}
-                    <form action = http://localhost:5000/move_info name = move_name method = "POST">
-                        <input type = "hidden" name = "pokemon_name" value = {{data[0].title()}}>
-                        <p id = {{move.title()}} name = "move_name" value = {{move.title()}} on_click = "create_move()">{{move.title()}}</p>
-                    </form>
+                <button id = {{move.title()}} name = 'move' value = {{move.title()}}>{{move.title()}}</a>
+                {{move_info}}
                 {% endfor %} 
+            </form>
             </div>
         </div>
-        <!-- TO DO: 
-            - Make below section so there is only one move info box 
-            - have it be hidden by default and 
-            - make it blank on load
+
+            <!-- TO DO: 
+            x Make below section so there is only one move info box 
+            x have it be hidden by default and 
+            x make it blank on load
             - pull data from the move name user clicks in the list 
             - auto-populate the move info with it -->
-        <div class= "p-2" id = "move_info"> 
-            <h5 class = "label"> Title </h5>
-            <p class = "box" style = "width: 500px"> Move Description </p>
-            <p><b>Accuracy:</b></p>
-            <p><b>power: </b></p>
-            <p><b>pp: </b></p>
-            <p><b>type: </b></p>
+            <div class= "p-2" id = "move_info"> 
+                {% if data|length > 6 %}
+                <h5 class = "label"> {{data[6].title()}} </h5>
+                <p class = "box" style = "width: 500px"> {{data[7].title()}} </p>
+                <p><b>Accuracy:</b> {{data[8]}} %</p>
+                <p><b>Power:</b> {{data[9]}} </p>
+                <p><b>PP:</b> {{data[10]}} </p>
+                <p class = "inline"><b>Type:</b>
+                <p class = "inline pokemon_type {{data[11].title()}}">{{data[11].title()}} </p>
+                {%endif%}
+            </div>
         </div>
-    </div>
     <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
         Fair use is a use permitted by copyright statute that might otherwise be infringing.</p>
         <p><a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Chanut - Flaticon</a></p>
