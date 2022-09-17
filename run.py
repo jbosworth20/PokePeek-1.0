@@ -24,7 +24,7 @@ def search(): #This method is terrible - make it better in terms of making it si
     return render_template('home.html')
 
 #The pokemon name route for the search
-@app.route("/pokemon/<name>")
+@app.route("/<name>")
 def pokemon(name): #Make the pokemon api parts better
     if request.method == "GET":
         api = PokemonAPI(name)
@@ -38,10 +38,15 @@ def pokemon(name): #Make the pokemon api parts better
         pokemon_moves = api.get_move_names(json) #5
         pokemon_info.extend([pokemon_name,pokemon_sprite,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves])
     return render_template('pokemon.html',name = pokemon_info[0],data = pokemon_info) #issue is with html not this
-
-@app.route("/move", methods = ['POST','GET']) #To get this to show up - try rendering page with pokemon_api call info for name and also tack on move_info
-def move():
-    pokemon_name = request.form['pokemon']
+@app.route("/get_moves", methods = ['POST'])
+def get_moves():
+    if request.method == "POST": 
+        pokemon_name = request.form['pokemon']
+        move_name = request.form['move'].lower()
+    return redirect(url_for('move',name = pokemon_name,move = move_name))
+@app.route("/<name>/<move>", methods = ['POST','GET']) #To get this to show up - try rendering page with pokemon_api call info for name and also tack on move_info
+def move(name,move):
+    pokemon_name = name
     api = PokemonAPI(pokemon_name)
     json = api.get_pokemon()
     pokemon_info = []
@@ -51,7 +56,7 @@ def move():
     pokemon_stats = api.get_stats(json)#3
     pokemon_abilities = api.get_abilities(json)#4
     pokemon_moves = api.get_move_names(json) #5
-    move_name = request.form['move'] .lower()
+    move_name = move
     pokemon_info.extend([pokemon_name,pokemon_sprite,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves])
     api = MoveAPI(move_name) 
     move_info = api.get_move_info()
@@ -60,9 +65,9 @@ def move():
     move_accuracy = move_info['accuracy'] #8
     move_power = move_info['power'] #9
     move_pp = move_info['pp'] #10
-    move_type = move_info['type'] #11
+    move_type = move_info['type'] #11  
     pokemon_info.extend([move_name,move_description,move_accuracy,move_power,move_pp,move_type])
-    return render_template('pokemon.html',name = pokemon_info[0],data = pokemon_info)
+    return render_template('pokemon.html',name = pokemon_info[0],move = pokemon_info[6], data = pokemon_info)
     #return move_info #Figure out how to turn this into just data 
 
 @app.route("/error",  methods = ['POST', 'GET'])

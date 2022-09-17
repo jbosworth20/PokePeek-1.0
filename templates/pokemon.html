@@ -78,7 +78,7 @@
         <div class = "p-2 moves_full">
             <h5 class = "label">Moves</h5> 
             <div class = "box scrollbox">
-                <form action="/move" method="post">
+                <form action="/get_moves" method="post">
                     <input type = 'hidden' name = 'pokemon' value = {{data[0]}}>
                 {% for move in data[5]%}
                 <button class = "list" id = {{move.title()}} name = 'move' value = {{move.title()}}>{{move.title()}}</button>
