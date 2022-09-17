@@ -81,7 +81,8 @@
                 <form action="/move" method="post">
                     <input type = 'hidden' name = 'pokemon' value = {{data[0]}}>
                 {% for move in data[5]%}
-                <button id = {{move.title()}} name = 'move' value = {{move.title()}}>{{move.title()}}</a>
+                <button class = "list" id = {{move.title()}} name = 'move' value = {{move.title()}}>{{move.title()}}</button>
+                <p></p>
                 {{move_info}}
                 {% endfor %} 
             </form>
