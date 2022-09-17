@@ -89,19 +89,6 @@ class PokemonAPI:
              all_move_names.append(move_name)
         return all_move_names
 
-    def get_move_info(self,move_name): 
-        link = "https://pokeapi.co/api/v2/move/" + move_name
-        move_response = requests.get(link).json()
-        move_info = {
-            "name": move_name,
-            "description": move_response.get("effect_entries")[0].get('effect'),
-            "accuracy": move_response.get("accuracy"),
-            "power": move_response.get("power"),
-            "pp": move_response.get("pp"),
-            "type": move_response.get("type").get("name")
-        }
-        return move_info
-
     def get_abilities(self,json):
         abilities = {}
         for ability in json["abilities"]:
