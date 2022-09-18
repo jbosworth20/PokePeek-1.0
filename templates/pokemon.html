@@ -31,15 +31,15 @@
             <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" class = "more_info_icon" onclick = "unhide('#type_info')">
             <div id = "type_info" style = "font-size:11px;" class = "hidden"> 
                 {% if no|length %}
-                <p><b> No Damage From: </b>{{no}}</p>
+                <p><b> No Damage From: </b>{{data[2][1]}}</p>
                 {% endif %}
                 {% if quarter|length %}
-                <p><b> x1/4 Damage From: </b>{{quarter}}</p>
+                <p><b> x1/4 Damage From: </b>{{data[2][2]}}</p>
                 {% endif %}
-                <p><b> x1/2 Damage From: </b>{{half|replace("[",'') | replace("]",'')|replace("'",'')}}</p>
-                <p><b> x2 Damage From: </b>{{ double|replace("[",'') | replace("]",'')|replace("'",'')}}</p>
+                <p><b> x1/2 Damage From: </b>{{data[2][3]}}</p>
+                <p><b> x2 Damage From: </b>{{data[2][4]}}</p>
                 {% if quad|length %}
-                <p><b> x4 Damage From: </b>{{quad}}</p>
+                <p><b> x4 Damage From: </b>{{data[2][5]}}</p>
                 {% endif %}     
             </div>
         </div>

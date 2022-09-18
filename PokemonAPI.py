@@ -28,11 +28,7 @@ class PokemonAPI:
     def get_types(self,json):
         all_type_info = []
         pokemon_types = []
-        quarter_damage_types = []
-        half_damage_types = []
-        double_damage_types = []
-        quad_damage_types = []
-        no_damage_types = []
+        no_damage_types = ""
         for types in json["types"]:
             type = types.get('type').get('name')
             pokemon_types.append(type)
@@ -41,44 +37,40 @@ class PokemonAPI:
             link = "https://pokeapi.co/api/v2/type/" + type
             type_response = requests.get(link).json()
             damage_relations = type_response.get("damage_relations")
-            for half_damage in damage_relations.get("half_damage_from"):
-                if half_damage.get("name") in half_damage_types:
-                    half_damage_types.remove(half_damage.get("name"))
-                    quarter_damage_types.append(half_damage.get("name"))
-                else:
-                    half_damage_types.append(half_damage.get("name"))
-            for double_damage in damage_relations.get("double_damage_from"):
-                if double_damage.get("name") in double_damage_types:
-                    double_damage_types.remove(double_damage.get("name"))
-                    quad_damage_types.apppend(double_damage.get("name"))
-                else:
-                    double_damage_types.append(double_damage.get("name"))
             for no_damage in damage_relations.get("no_damage_from"):
                 if no_damage.get("name") not in no_damage_types:
-                    no_damage_types.append(no_damage.get("name"))
-        remove_characters = {"'":None,'[':None,']':None}
-        #No Damage To
-        no_damage = str(no_damage_types)
-        no_damage.translate(remove_characters)
-        #Quarter Damage To
-        quarter_damage = str(quarter_damage_types)
-        quarter_damage.translate(remove_characters)
-        #Half Damage To
-        half_damage = str(half_damage_types)
-        half_damage.translate(remove_characters)
-        #Double Damage To
-        double_damage = str(double_damage_types)
-        double_damage.translate(remove_characters)
-        #Quad Damage To
-        quad_damage = str(quad_damage_types)
-        quad_damage.translate(remove_characters)
+                    no_damage_types = no_damage_types + ", " + no_damage.get("name")
+            half_and_quarter = self.get_type_help(damage_relations.get("half_damage_from"))
+            double_and_quad = self.get_type_help(damage_relations.get("double_damage_from"))
+            quarter_damage_types = half_and_quarter[1]
+            half_damage_types = half_and_quarter[0]
+            double_damage_types = double_and_quad[0]
+            quad_damage_types = double_and_quad[1]
 
-        all_type_info.append(no_damage) #1
-        all_type_info.append(quarter_damage) #2
-        all_type_info.append(half_damage) #3
-        all_type_info.append(double_damage) #4
-        all_type_info.append(quad_damage) #5
+        all_type_info.append(no_damage_types) #1
+        all_type_info.append(quarter_damage_types) #2
+        all_type_info.append(half_damage_types) #3
+        all_type_info.append(double_damage_types) #4
+        all_type_info.append(quad_damage_types) #5
         return all_type_info
+    def get_type_help(self,damage_type):
+        total_types = []
+        type_string = ""
+        second_type_string = "" #This would be quarter or quad damage
+        for type in damage_type:
+            if type.get("name") not in type_string:
+                if len(type_string) == 0:
+                    type_string = type.get("name")
+                else:
+                    type_string = type_string + ", " + type.get("name")
+            else:
+                type_string.replace(type,'')
+                if len(second_type_string) == 0:
+                    second_type_string = type.get("name")
+                else:
+                    second_type_string = second_type_string + ", " + type.get("name")
+        total_types = [type_string,second_type_string]
+        return total_types
 
     def get_stats(self,json):
         # 0 = hp 1 = atk 2 = def 3 = sp ak 4 = sp def & 5 = spd_stat
