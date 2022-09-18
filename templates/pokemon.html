@@ -30,14 +30,6 @@
             {% endfor %}
             <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" class = "more_info_icon" onclick = "unhide('#type_info')">
             <div id = "type_info" style = "font-size:11px;" class = "hidden"> 
-                {% set no = data[2][1]|string %}
-                {% set quarter = data[2][2]|string %}
-                {% set half = data[2][3]|string %}
-                {% set double = data[2][4]|string %}
-                {% set quad = data[2][5]|string %}
-                {%set no = no|replace("[",'') | replace("]",'')|replace("'",'') %}
-                {%set quarter = quarter|replace("[",'') | replace("]",'')|replace("'",'') %}
-                {%set quad = quad|replace("[",'') | replace("]",'')|replace("'",'') %}
                 {% if no|length %}
                 <p><b> No Damage From: </b>{{no}}</p>
                 {% endif %}

@@ -56,11 +56,28 @@ class PokemonAPI:
             for no_damage in damage_relations.get("no_damage_from"):
                 if no_damage.get("name") not in no_damage_types:
                     no_damage_types.append(no_damage.get("name"))
-        all_type_info.append(no_damage_types) #1
-        all_type_info.append(quarter_damage_types) #2
-        all_type_info.append(half_damage_types) #3
-        all_type_info.append(double_damage_types) #4
-        all_type_info.append(quad_damage_types) #5
+        remove_characters = {"'":None,'[':None,']':None}
+        #No Damage To
+        no_damage = str(no_damage_types)
+        no_damage.translate(remove_characters)
+        #Quarter Damage To
+        quarter_damage = str(quarter_damage_types)
+        quarter_damage.translate(remove_characters)
+        #Half Damage To
+        half_damage = str(half_damage_types)
+        half_damage.translate(remove_characters)
+        #Double Damage To
+        double_damage = str(double_damage_types)
+        double_damage.translate(remove_characters)
+        #Quad Damage To
+        quad_damage = str(quad_damage_types)
+        quad_damage.translate(remove_characters)
+
+        all_type_info.append(no_damage) #1
+        all_type_info.append(quarter_damage) #2
+        all_type_info.append(half_damage) #3
+        all_type_info.append(double_damage) #4
+        all_type_info.append(quad_damage) #5
         return all_type_info
 
     def get_stats(self,json):
