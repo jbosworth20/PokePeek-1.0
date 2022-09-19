@@ -46,13 +46,13 @@ class PokemonAPI:
             half_damage_types = half_and_quarter[0]
             double_damage_types = double_and_quad[0]
             quad_damage_types = double_and_quad[1]
-
         all_type_info.append(no_damage_types) #1
         all_type_info.append(quarter_damage_types) #2
         all_type_info.append(half_damage_types) #3
         all_type_info.append(double_damage_types) #4
         all_type_info.append(quad_damage_types) #5
         return all_type_info
+    
     def get_type_help(self,damage_type):
         total_types = []
         type_string = ""
