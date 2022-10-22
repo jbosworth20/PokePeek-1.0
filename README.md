@@ -5,10 +5,10 @@ Hello! This website is designed to be a quick and easy way to get important info
 NOTE: This website still has renovation to go through to make it function better 
 ______
 ##### Currently Working On: ##### 
-Converting the frontend to React
+Working on new project
 ______
 ##### Planned Fixes #####
-- Displaying move info 
+- N/A
 ______
 ##### Possible Improvements #####
 -Move code to AWS
