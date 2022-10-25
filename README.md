@@ -5,13 +5,11 @@ Hello! This website is designed to be a quick and easy way to get important info
 NOTE: This website still has renovation to go through to make it function better 
 ______
 ##### Currently Working On: ##### 
-Working on new project
+- Comparing two pokemon
 ______
 ##### Planned Fixes #####
 - N/A
 ______
 ##### Possible Improvements #####
--Move code to AWS
--Add more functionality
-  - Comparing two pokemon
-  - Team building 
+- Comparing two pokemon
+- Team building 
