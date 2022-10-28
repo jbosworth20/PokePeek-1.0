@@ -30,7 +30,7 @@
             {% endfor %}
             <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" class = "more_info_icon" onclick = "unhide('#type_info')">
             <div id = "type_info" style = "font-size:11px;" class = "hidden"> 
-                {% if no|length %}
+                {% if no|length %} <!-- Maybe we can change these lengths checks to be done with jquery to append it?-->
                 <p><b> No Damage From: </b>{{data[2][1]}}</p>
                 {% endif %}
                 {% if quarter|length %}
@@ -47,7 +47,7 @@
             <h5 class = "label">Stats</h5>
             <div class="box" id = "stats">
                     <!-- Avg HP: 75, Avg Def: 70, Avg Sp Atk: 69, Sp Def: 69 Avg Spd: 66-->
-                    <center>
+                    <center> <!-- Maybe we can make it so jquery can do this as well -->
                     <p id = "HP"><b>HP:</b>{{data[3][0]}}</p>
                     <p id = "Atk"><b>Atk:</b> {{data[3][1]}}</p>
                     <p id = "Def"><b>Def:</b> {{data[3][2]}}</p>
@@ -83,17 +83,16 @@
             <div class= "p-2" id = "move_info"> 
                 {% if data|length > 6 %}
                 <h5 class = "label"> {{data[6].title()}} </h5>
-                <p class = "box" style = "width: 500px"> {{data[7]}} </p>
-                {% if data[8] == 'None' %} <!--Get this to work-->
-                    <p><b>Accuracy:</b> 100%</p>
-                {%else%}
-                <p><b>Accuracy:</b> {{data[8]}}%</p> 
+                <div class = "move_box"> <!-- Move dccuracy calculator to MoveAPI if accuracy = None -->
+                    <p> {{data[7]}} </p>
+                    <p><b>Accuracy:</b> {{data[8]}}%</p> 
+                    <p><b>Power:</b> {{data[9]}} </p>
+                    <p><b>PP:</b> {{data[10]}} </p>
+                    <p class = "inline"><b>Type:</b>
+                    <p class = "inline pokemon_type {{data[11].title()}}">{{data[11].title()}} </p>
+                    <p></p>
                 {%endif%}
-                <p><b>Power:</b> {{data[9]}} </p>
-                <p><b>PP:</b> {{data[10]}} </p>
-                <p class = "inline"><b>Type:</b>
-                <p class = "inline pokemon_type {{data[11].title()}}">{{data[11].title()}} </p>
-                {%endif%}
+                </div>
             </div>
         </div>
     <p class = 'disclamer'>FAIR-USE COPYRIGHT DISCLAIMER Copyright Disclaimer under section 107 of the Copyright Act of 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research.
