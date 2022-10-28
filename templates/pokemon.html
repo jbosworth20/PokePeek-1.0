@@ -84,6 +84,7 @@
                 {% if data|length > 6 %}
                 <h5 class = "label"> {{data[6].title()}} </h5>
                 <div class = "move_box"> <!-- Move dccuracy calculator to MoveAPI if accuracy = None -->
+                    <center>
                     <p> {{data[7]}} </p>
                     <p><b>Accuracy:</b> {{data[8]}}%</p> 
                     <p><b>Power:</b> {{data[9]}} </p>
@@ -91,6 +92,7 @@
                     <p class = "inline"><b>Type:</b>
                     <p class = "inline pokemon_type {{data[11].title()}}">{{data[11].title()}} </p>
                     <p></p>
+                    </center>
                 {%endif%}
                 </div>
             </div>
