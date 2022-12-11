@@ -13,8 +13,7 @@ def home():
 @app.route("/search", methods = ['POST', 'GET'])
 def search(): #This method is terrible - make it better in terms of making it simple and less weird
     if request.method == "POST": 
-        pokemon_name = request.form['search']
-        pokemon = PokemonAPI(pokemon_name)
+        pokemon = PokemonAPI(request.form['search'])
         json_ = pokemon.get_pokemon()
         pokemon_name = pokemon.get_name(json_)
         if(pokemon.confirm_legit(json_) != '404'):
