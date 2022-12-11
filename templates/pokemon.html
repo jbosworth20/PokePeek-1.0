@@ -9,27 +9,27 @@
     <script src="{{ url_for('static', filename='code.js')}}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-    $(document).ready(function(){
-        $(".hidden").hide();
-      });
+        $(document).ready(function(){
+            hide(".hidden")
+        });
     </script>
 </head>
 <body>
     <h1> Poké Peek </h1>
     <form action = "http://localhost:5000/search" method = "POST"> 
         <p><input type = 'text' id = 'search_pokemon' name = 'search' placeholder = "Search for a Pokémon"> 
-        <img src = 'https://cdn-icons-png.flaticon.com/128/151/151773.png' id = 'search_icon' onclick = "grab_pokemon_name()"></p>
+        <img src = 'https://cdn-icons-png.flaticon.com/128/151/151773.png' id = 'search_icon' alt = 'search_button' onclick = "grab_pokemon_name()"></p>
     </form>
-    <div class="d-flex flex-row" style = "width : 240px;">
+    <div class="d-flex flex-row" id = 'pokemon_info'>
         <div class="p-2">     
             <h3 class = "label" id = 'pokemon_name' name = 'pokemon_name'>{{data[0].title()}}</h3> 
-            <img src = {{data[1]}} class = "box" id = sprite>
+            <img src = {{data[1]}} class = "box" id = sprite alt = 'sprite of pokemon'>
             <p class = "inline"><b>Types: </b>
             {% for type in data[2][0]%}
                 <p class = "inline pokemon_type {{data[2][0][loop.index0].capitalize()}}">{{data[2][0][loop.index0].title()}}</p>
             {% endfor %}
-            <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" class = "more_info_icon" onclick = "unhide('#type_info')">
-            <div id = "type_info" style = "font-size:11px;" class = "hidden"> 
+            <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "types-button" alt = 'unhide/hide type info button' class = "more_info_icon" onclick = "hide('#type_info')">
+            <div id = "type_info" class = "hidden"> 
                 {% if no|length %} <!-- Maybe we can change these lengths checks to be done with jquery to append it?-->
                 <p><b> No Damage From: </b>{{data[2][1]}}</p>
                 {% endif %}
@@ -61,8 +61,8 @@
                         {% set ability_names = data[4].keys() | list %}
                         {% set ability_desc = data[4].values() | list %}
                         {% for abilility in data[4]%}
-                            <p id = "{{ability_names[loop.index0].title()}}" style = "width: 400px">{{ability_names[loop.index0].title()}} <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' id = "{{ability_names[loop.index0].title()}}-Button" class = "more_info_icon" onclick = "unhide('#{{ability_names[loop.index0].title()}}-Info')">
-                            <p id = "{{ability_names[loop.index0].title()}}-Info" class = "hidden" style = "font-size:10px">{{ability_desc[loop.index0]}}</p>
+                            <p id = "{{ability_names[loop.index0].title()}}" class = "ability_names">{{ability_names[loop.index0].title()}} <img src = 'https://cdn-icons-png.flaticon.com/128/471/471664.png' alt = 'unhide/hide ability info button' id = "{{ability_names[loop.index0].title()}}-Button" class = "more_info_icon" onclick = "hide('#{{ability_names[loop.index0].title()}}-Info')">
+                            <p id = "{{ability_names[loop.index0].title()}}-Info" class = "hidden ability_descs">{{ability_desc[loop.index0]}}</p>
                         {% endfor %}
                     </div>
             </div> 
@@ -73,7 +73,7 @@
                 <form action="/get_moves" method="post">
                     <input type = 'hidden' name = 'pokemon' value = {{data[0]}}>
                 {% for move in data[5]%}
-                <button class = "list" id = {{move.title()}} name = 'move' value = {{move.title()}}>{{move.title()}}</button>
+                <button class = "list" type = "submit" id = {{move.title()}} name = 'move' value = {{move.title()}}>{{move.title()}}</button>
                 <p></p>
                 {{move_info}}
                 {% endfor %} 
@@ -86,7 +86,7 @@
                 <div class = "move_box"> <!-- Move dccuracy calculator to MoveAPI if accuracy = None -->
                     <center>
                     <p> {{data[7]}} </p>
-                    <p><b>Accuracy:</b> {{data[8]}}%</p> 
+                    <p><b>Accuracy:</b> {{data[8]}}</p> 
                     <p><b>Power:</b> {{data[9]}} </p>
                     <p><b>PP:</b> {{data[10]}} </p>
                     <p class = "inline"><b>Type:</b>
