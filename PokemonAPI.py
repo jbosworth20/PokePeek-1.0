@@ -96,6 +96,7 @@ class PokemonAPI:
         for i,move in enumerate(move_json,start = 0):
              move_name = move_json[i].get("move").get("name")
              all_move_names.append(move_name)
+        all_move_names.sort()
         return all_move_names
 
     def get_abilities(self,json):
