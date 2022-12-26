@@ -29,6 +29,7 @@ def pokemon(name): #Make the pokemon api parts better
         api = PokemonAPI(name)
         json = api.get_pokemon()
         pokemon_info = []
+        #Make a function to grab all this  so no repeats for name and move call
         pokemon_name = api.get_name(json) #0
         pokemon_sprite = api.get_sprite(json)#1
         pokemon_type = api.get_types(json)#2
@@ -36,7 +37,8 @@ def pokemon(name): #Make the pokemon api parts better
         pokemon_abilities = api.get_abilities(json)#4
         pokemon_moves = api.get_move_names(json) #5
         pokemon_info.extend([pokemon_name,pokemon_sprite,pokemon_type,pokemon_stats,pokemon_abilities,pokemon_moves])
-    return render_template('pokemon.html',name = pokemon_info[0],data = pokemon_info) #issue is with html not this
+        return render_template('pokemon.html',name = pokemon_info[0],data = pokemon_info) #issue is with html not this
+
 @app.route("/get_moves", methods = ['POST'])
 def get_moves():
     if request.method == "POST": 
