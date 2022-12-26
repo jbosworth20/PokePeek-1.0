@@ -8,6 +8,8 @@ class MoveAPI:
         if(accuracy.isdigit()):
             accuracy = accuracy + "%"
             return accuracy
+        elif(accuracy == "None"):
+            accuracy = ""
         return accuracy
     def get_move_info(self): 
         link = "https://pokeapi.co/api/v2/move/" + self.move_name #issue is with move_name is literally move_name
