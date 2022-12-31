@@ -121,6 +121,15 @@ class PokemonAPI:
             id_ + ".png"
         return sprite_link
     
+    def get_all_info(self,json):
+        pokemon_info = [
+            self.get_name(json),
+            self.get_sprite(json),
+            self.get_types(json),
+            self.get_stats(json),
+            self.get_abilities(json),
+            self.get_move_names(json)]
+        return pokemon_info
     def confirm_legit(self,json):
         try:
             pokemon_json = self.get_pokemon()
