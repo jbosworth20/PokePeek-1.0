@@ -16,14 +16,11 @@ class MoveAPI:
         print(link)
         move_response = requests.get(link)
         json = move_response.json()
-        move_info = {
-            "name":  self.move_name,
-            "description": self.format_desc(json,json.get("effect_entries")[0].get('effect')),
-            "accuracy": self.format_accuracy(json.get("accuracy")),
-            "power": json.get("power"),
-            "pp": json.get("pp"),
-            "type": json.get("type").get("name")
-            }
+        move_info = [
+            self.move_name,
+            self.format_desc(json,json.get("effect_entries")[0].get('effect')),
+            self.format_accuracy(json.get("accuracy")),json.get("power"),json.get("pp"),json.get("type").get("name")
+        ]
         return move_info
     
     def format_desc(self,json,desc):

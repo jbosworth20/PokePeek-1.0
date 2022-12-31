@@ -44,13 +44,7 @@ def move(name,move):
     pokemon_info = api.get_all_info(json)
     api = MoveAPI(move) 
     move_info = api.get_move_info()
-    move_name = move_info['name'] #6
-    move_description = move_info['description'] #7
-    move_accuracy = move_info['accuracy'] #8
-    move_power = move_info['power'] #9
-    move_pp = move_info['pp'] #10
-    move_type = move_info['type'] #11  
-    pokemon_info.extend([move_name,move_description,move_accuracy,move_power,move_pp,move_type])
+    pokemon_info.extend(move_info)
     return render_template('pokemon.html',name = pokemon_info[0],move = pokemon_info[6], data = pokemon_info)
     #return move_info #Figure out how to turn this into just data 
 
